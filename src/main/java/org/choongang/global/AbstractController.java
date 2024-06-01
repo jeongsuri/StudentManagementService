@@ -59,6 +59,14 @@ public abstract class AbstractController implements Controller {
         return str;
     }
 
+    protected int attendances(String message){
+        String str = null;
+        System.out.print(message);
+        str = sc.nextLine();
+
+        return Integer.parseInt(str) - 1;
+    }
+
     /**
      * 템플릿 메서드 패턴 : 특정 절차가 고정되어 있는 경우!
      *

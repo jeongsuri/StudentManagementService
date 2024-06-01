@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class AttendanceCheck {
+public class SelectAttendance {
     private String TODAY;
     private String CLASS_ID;
     private int STUDENT_NO;
