@@ -6,5 +6,5 @@ import java.util.List;
 @Data
 @Builder
 public class seat {
-    private List<String> seatNum;
+    private String studentNo;
 }
