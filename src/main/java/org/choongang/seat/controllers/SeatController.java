@@ -26,15 +26,13 @@ public class SeatController extends AbstractController {
 
         String studentNo = promptWithValidation("학번: ", s -> !s.isBlank());
 
-        List<String> aa = mapper.getList();
-
-        System.out.println(" aa" + aa);
-
         List<String> classStudent = mapper.getClassStudent(studentNo);
 
         seat form = seat.builder()
                 .seatNum(classStudent)
                 .build();
+
+        System.out.println(form.getSeatNum());
     }
 
 }
