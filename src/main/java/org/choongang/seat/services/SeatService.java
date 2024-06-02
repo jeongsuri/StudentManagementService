@@ -16,8 +16,11 @@ public class SeatService implements Service<seat> {
 
         SeatMapper mapper = session.getMapper(SeatMapper.class);
         List<String> classStudent = mapper.getClassStudent(form.getStudentNo());
+        String studentNM = mapper.getStudentNM(form.getStudentNo());
 
-        System.out.println("\n" + form.getStudentNo() + "\n\uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91       \uD83D\uDC76    \uD83E\uDE91   \uD83E\uDE91\n" +
+        System.out.println("               좌석 배치도             ");
+        System.out.println(form.getStudentNo() + "\t" + studentNM +
+              "\n\uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91       \uD83E\uDE91    \uD83E\uDE91   \uD83E\uDE91\n" +
                 "\uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91       \uD83E\uDE91    \uD83E\uDE91   \uD83E\uDE91\n" +
                 "\uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91       \uD83E\uDE91    \uD83E\uDE91   \uD83E\uDE91\n" +
                 "\uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91   \uD83E\uDE91       \uD83E\uDE91    \uD83E\uDE91   \uD83E\uDE91\n\n");

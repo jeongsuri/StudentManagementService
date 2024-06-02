@@ -8,5 +8,7 @@
         SELECT CLASS_ID FROM STUDENT WHERE STUDENT_NO = #{studentNo})
         ORDER BY STUDENT_NO ASC
     </select>
-
+    <select id="getStudentNM" resultType="String">
+        SELECT STUDENT_NM FROM STUDENT WHERE STUDENT_NO = #{studentNo}
+    </select>
 </mapper>

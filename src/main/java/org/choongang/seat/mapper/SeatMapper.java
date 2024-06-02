@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface SeatMapper {
     List<String> getClassStudent(String studentNo);
+    String getStudentNM(String studentNo);
  }
