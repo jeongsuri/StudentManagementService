@@ -6,5 +6,5 @@ import java.util.List;
 @Data
 @Builder
 public class seat {
-    private List<Number> seatNum;
+    private List<String> seatNum;
 }
