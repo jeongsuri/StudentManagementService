@@ -1,17 +1,14 @@
 package org.choongang.seat.controllers;
 
 import org.choongang.global.AbstractController;
+import org.choongang.global.constants.Menu;
+import org.choongang.template.Templates;
 
 public class SeatController extends AbstractController {
 
     @Override
-    public void common() {
-        System.out.println("common");
-    }
-
-    @Override
     public void show() {
-        System.out.println("show");
+        Templates.getInstance().render(Menu.SEAT);
     }
 
     @Override
