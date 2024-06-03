@@ -1,6 +1,8 @@
 package org.choongang.global.constants;
 
-public enum Menu {
+import org.choongang.global.Menu;
+
+public enum MainMenu implements Menu {
     MAIN, // 메인 화면
     STUDENT, //학생
     ATTENDANCE, //출석관리
