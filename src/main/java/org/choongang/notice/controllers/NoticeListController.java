@@ -5,6 +5,6 @@ import org.choongang.global.AbstractController;
 public class NoticeListController extends AbstractController {
     @Override
     public void show() {
-        System.out.println("공지사항 목록");
+        System.out.print("공지사항 목록");
     }
 }
