@@ -3,6 +3,7 @@ package org.choongang.template;
 import org.choongang.global.constants.Menu;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.reservation.ReservationTpl;
+import org.choongang.template.student.StudentTpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +36,7 @@ public class Templates {
         }
         switch (menu){
             case RESERVATION: tpl = new ReservationTpl(); break;
+            case STUDENT: tpl = new StudentTpl(); break;
             default: tpl = new MainTpl();
         }
 
