@@ -6,9 +6,9 @@
             <pattern>%d %5p %c{2} - %m%n</pattern>
         </encoder>
     </appender>
-    <root level="INFO">
+    <root level="DEFAULT">
         <appender-ref ref="stdout" />
     </root>
 
-    <logger name="org.choongang.seat.mapper" level="INFO" />
+    <logger name="org.choongang.seat.mapper" level="DEFAULT" />
 </configuration>

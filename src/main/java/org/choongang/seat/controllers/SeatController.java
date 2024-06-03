@@ -33,7 +33,7 @@ public class SeatController extends AbstractController {
         Router router = MainRouter.getInstance();
 
         try {
-            Service service = new SeatService();
+            Service service = SeatService.getInstance();
             service.process(form);
 
             router.change(Menu.SEAT);
