@@ -2,7 +2,9 @@ package org.choongang.template;
 
 import org.choongang.global.constants.Menu;
 import org.choongang.template.main.MainTpl;
+import org.choongang.template.pay.PayTpl;
 import org.choongang.template.reservation.ReservationTpl;
+import org.choongang.template.seat.SeatTpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +36,8 @@ public class Templates {
             return tpl;
         }
         switch (menu){
+            case PAY: tpl = new PayTpl(); break;
+            case SEAT: tpl = new SeatTpl(); break;
             case RESERVATION: tpl = new ReservationTpl(); break;
             default: tpl = new MainTpl();
         }

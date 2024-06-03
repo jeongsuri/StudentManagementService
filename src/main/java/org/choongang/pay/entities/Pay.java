@@ -7,6 +7,6 @@ import lombok.Data;
 @Builder
 public class Pay {
     private int studentNo;
-    private long payment;
+    private int payment;
 
 }

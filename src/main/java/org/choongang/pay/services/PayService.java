@@ -9,15 +9,27 @@ import java.util.List;
 
 public class PayService implements Service<List<Pay>> {
     @Override
-    public List<Pay> process(List<Pay> form) {
+    public void process(List<Pay> form) {
           PayMapper mapper = DBConn.getSession().getMapper(PayMapper.class);
 
-        return mapper.getPay();
+        List<Pay> studentNo = mapper.getStudentNo();
+        List<Pay> payment = mapper.getPay();
+
+        Pay form = Pay.builder()
+                .studentNo(studentNo)
+                .build();
+
+
+        if (studentNo != mapper.getStudentNo()) {
+            throw new RuntimeException();
+        }
+        else {
+            System.out.printf("%d , %d " , studentNo , payment);
+        }
+       /* if(studentNo  {
+            throw new RuntimeException();
+        }
+*/
+
     }
 }
-
-   /* @Override
-    public List<Pay> process(List<Pay> form) {
-        return List.of();
-    }
-}*/

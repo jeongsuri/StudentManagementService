@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PayMapper {
     List<Pay> getPay();
+
+    List<Pay> getStudentNo();
 }
