@@ -5,7 +5,7 @@ import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.global.configs.DBConn;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.seat.entities.seat;
 import org.choongang.seat.mapper.SeatMapper;
@@ -19,12 +19,12 @@ public class SeatController extends AbstractController {
 
     @Override
     public void show() {
-        Templates.getInstance().render(Menu.SEAT);
+        Templates.getInstance().render(MainMenu.SEAT);
     }
 
     @Override
     public void prompt() {
-        String studentNo = promptWithValidation("학번: ", s -> !s.isBlank());
+        String studentNo = promptWithValidation("학번: (메인화면으로 이동 q 입력)", s -> !s.isBlank());
 
         seat form = seat.builder()
                 .studentNo(studentNo)
@@ -32,14 +32,19 @@ public class SeatController extends AbstractController {
 
         Router router = MainRouter.getInstance();
 
+
+
         try {
-            Service service = new SeatService();
+            if (studentNo.equals("q")) { router.change(MainMenu.MAIN); }    //나가기 실행
+
+            Service service = new SeatService();    //싱글톤으로 할경우에 Array와 String을 수동으로 비워야함.
             service.process(form);
 
-            router.change(Menu.SEAT);
+            router.change(MainMenu.SEAT);
 
         } catch (RuntimeException e) {
-            System.err.println(e.getMessage());
+            System.err.println("존재하지 않는 학번입니다.");
+            router.change(MainMenu.SEAT);
         }
     }
 
