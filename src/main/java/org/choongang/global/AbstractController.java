@@ -47,14 +47,14 @@ public abstract class AbstractController implements Controller {
     /**
      * 입력과 검증을 함께 진행
      * @param message : 항목 메세지
-     * @param prdicate : 판별식
+     * @param predicate : 판별식
      */
-    protected String promptWithValidation(String message, Predicate<String> prdicate){
+    protected String promptWithValidation(String message, Predicate<String> predicate){
         String str = null;
         do{
             System.out.print(message);
             str = sc.nextLine();
-        }while(!prdicate.test(str));
+        }while(!predicate.test(str));
 
         return str;
     }
