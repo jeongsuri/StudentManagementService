@@ -3,7 +3,6 @@ package org.choongang.attendance.constants;
 import org.choongang.global.Menu;
 
 public enum AttendanceMenu implements Menu {
-    SELECT,
-    INSERT,
-    DELETE;
+   REGISTER,
+    SEARCH
 }

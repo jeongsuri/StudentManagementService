@@ -1,24 +1,17 @@
 package org.choongang.student.controllers;
 
+import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
-import org.choongang.global.constants.MainMenu;
-import org.choongang.main.controllers.MainController;
+import org.choongang.student.constants.StudentMenu;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.choongang.global.constants.MainMenu.STUDENT;
-
-public class StudentControllersLocator implements ControllerLocator {
+public class StudentControllersLocator extends AbstractControllerLocator {
 
     private static ControllerLocator instance;
 
-    private Map<MainMenu, Controller> controllers;
-
     private StudentControllersLocator(){
-        controllers = new HashMap<>();
+
     }
 
     public static ControllerLocator getInstance(){
@@ -34,11 +27,12 @@ public class StudentControllersLocator implements ControllerLocator {
         if (controller != null) {
             return controller;
         }
-        switch(menu) {
-            case STUDENT: controller = new StudentController(); break;
-            default: controller = new MainController();
-        }
 
+        StudentMenu studentMenu = (StudentMenu)menu;
+        switch(studentMenu) {
+            case REGISTER: controller = new StudentRegisterController(); break;
+            case SEARCH: controller = new StudentListController(); break;
+        }
         controllers.put(menu,controller);
 
         return controller;

@@ -1,27 +1,18 @@
 package org.choongang.main;
 
-import org.choongang.attendance.controllers.AttendanceControllerLocator;
-import org.choongang.global.Controller;
-import org.choongang.global.ControllerLocator;
-import org.choongang.global.Router;
+import org.choongang.global.*;
 import org.choongang.global.constants.MainMenu;
-import org.choongang.main.controllers.MainController;
-import org.choongang.notice.controllers.NoticeControllersLocator;
-import org.choongang.pay.controllers.PayControllersLocator;
-import org.choongang.reservation.controllers.ReservationControllersLocator;
-import org.choongang.score.controllers.ScoreControllersLocator;
-import org.choongang.seat.controllers.SeatControllersLocator;
-import org.choongang.student.controllers.StudentControllersLocator;
+import org.choongang.main.controllers.MainControllerLocator;
 
 
-public class MainRouter implements Router {
+public class MainRouter implements Router, Startable {
 
     /**
      * 싱글톤 패턴, 메뉴 컨트롤러가 변경될때마다 새로운 객체를 만들어지는것을 방지
      */
-    private static Router instance;
+    private static MainRouter instance;
     private MainRouter(){}
-    public static Router getInstance(){
+    public static MainRouter getInstance(){
         if(instance == null){
             instance = new MainRouter();
         }
@@ -37,29 +28,25 @@ public class MainRouter implements Router {
      *     RESERVATION, //예약관리
      *     SEAT, //좌석관리
      *     NOTICE //공지관리
-     * @param mainMenu
+     * @param menu
      */
 
     @Override
-    public void change(MainMenu mainMenu) {
-        ControllerLocator student = StudentControllersLocator.getInstance();
-        ControllerLocator attendance = AttendanceControllerLocator.getInstance();
-        ControllerLocator pay = PayControllersLocator.getInstance();
-        ControllerLocator score = ScoreControllersLocator.getInstance();
-        ControllerLocator reservation = ReservationControllersLocator.getInstance();
-        ControllerLocator seat = SeatControllersLocator.getInstance();
-        ControllerLocator notice = NoticeControllersLocator.getInstance();
+    public void change(Menu menu) {
+        MainMenu mainMenu = (MainMenu) menu;
+        ControllerLocator locator = MainControllerLocator.getInstance();
         Controller controller = null;
         switch (mainMenu){
-            case STUDENT: controller = student.find(MainMenu.STUDENT); break;
-            case ATTENDANCE: controller = attendance.find(MainMenu.ATTENDANCE); break;
-            case PAY: controller = pay.find(MainMenu.PAY); break;
-            case SCORE: controller = score.find(MainMenu.SCORE); break;
-            case RESERVATION: controller = reservation.find(MainMenu.RESERVATION); break;
-            case SEAT: controller = seat.find(MainMenu.SEAT); break;
-            case NOTICE: controller = notice.find(MainMenu.NOTICE); break;
-            default: controller = new MainController();
+            case STUDENT: controller = locator.find(MainMenu.STUDENT); break;
+            case ATTENDANCE: controller = locator.find(MainMenu.ATTENDANCE); break;
+            case PAY: controller = locator.find(MainMenu.PAY); break;
+            case SCORE: controller = locator.find(MainMenu.SCORE); break;
+            case RESERVATION: controller = locator.find(MainMenu.RESERVATION); break;
+            case SEAT: controller = locator.find(MainMenu.SEAT); break;
+            case NOTICE: controller = locator.find(MainMenu.NOTICE); break;
+            default: controller = locator.find(MainMenu.MAIN);
         }
+
         controller.run(); //common(), show(), prompt()
     }
 

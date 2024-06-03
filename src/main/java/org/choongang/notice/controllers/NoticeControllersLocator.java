@@ -1,5 +1,6 @@
 package org.choongang.notice.controllers;
 
+import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
@@ -11,14 +12,12 @@ import java.util.Map;
 
 import static org.choongang.global.constants.MainMenu.NOTICE;
 
-public class NoticeControllersLocator implements ControllerLocator {
+public class NoticeControllersLocator extends AbstractControllerLocator {
 
     private static ControllerLocator instance;
 
-    private Map<MainMenu, Controller> controllers;
-
     private NoticeControllersLocator(){
-        controllers = new HashMap<>();
+
     }
 
     public static ControllerLocator getInstance(){
@@ -34,10 +33,7 @@ public class NoticeControllersLocator implements ControllerLocator {
         if (controller != null) {
             return controller;
         }
-        switch(menu) {
-            case NOTICE: controller = new NoticeController(); break;
-            default: controller = new MainController();
-        }
+
 
         controllers.put(menu,controller);
 

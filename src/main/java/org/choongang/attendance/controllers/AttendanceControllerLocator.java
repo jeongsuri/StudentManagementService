@@ -1,20 +1,18 @@
 package org.choongang.attendance.controllers;
 
 import org.choongang.attendance.constants.AttendanceMenu;
-import org.choongang.global.*;
-import org.choongang.main.controllers.MainController;
-import java.util.HashMap;
-import java.util.Map;
+import org.choongang.global.AbstractControllerLocator;
+import org.choongang.global.Controller;
+import org.choongang.global.ControllerLocator;
+import org.choongang.global.Menu;
 
 
 public class AttendanceControllerLocator extends AbstractControllerLocator {
 
     private static ControllerLocator instance;
 
-    private Map<Menu, Controller> controllers;
-
     private AttendanceControllerLocator(){
-        controllers = new HashMap<>();
+
     }
 
     public static ControllerLocator getInstance(){
@@ -33,31 +31,15 @@ public class AttendanceControllerLocator extends AbstractControllerLocator {
             return controller;
         }
 
-        if (menu instanceof AttendanceMenu) {
-            AttendanceMenu attendanceMenu = (AttendanceMenu) menu;
-
-            switch (attendanceMenu) {
-                case INSERT:
-                    controller = new InsertAttendanceController();
-                    break;
-                case SELECT:
-                    controller = new SelectAttendanceController();
-                    break;
-                case DELETE:
-                    controller = new DeleteAttendanceController();
-                    break;
-            }
-
+        AttendanceMenu aMenu = (AttendanceMenu) menu;
+        switch (aMenu) {
+            case REGISTER: controller = new InsertAttendanceController(); break;
+            case SEARCH: controller = new ListAttandanceController(); break;
         }
-                else {
-                controller = new MainController();
-            }
 
-            //controller.setMenu(menu);
+        controllers.put(menu, controller);
 
-            controllers.put(menu, controller);
-
-            return controller;
-        }
+        return controller;
+    }
 }
 

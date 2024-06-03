@@ -3,12 +3,13 @@ package org.choongang.template;
 import org.choongang.attendance.constants.AttendanceMenu;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
+import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.attendance.AttendanceTpl;
-import org.choongang.template.attendance.DeleteAttendanceTpl;
-import org.choongang.template.attendance.InsertAttendanceTpl;
-import org.choongang.template.attendance.SelectAttendanceTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.reservation.ReservationTpl;
+import org.choongang.template.student.StudentListTpl;
+import org.choongang.template.student.StudentMainTpl;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -44,10 +45,20 @@ public class Templates {
         }
         if (menu instanceof AttendanceMenu) {
             AttendanceMenu attendanceMenu = (AttendanceMenu) menu;
-            switch(attendanceMenu) {
-                case SELECT: tpl = new SelectAttendanceTpl();
-                case INSERT: tpl = new InsertAttendanceTpl();
-                case DELETE: tpl = new DeleteAttendanceTpl(); break;
+           /*
+            switch (attendanceMenu) {
+                case SELECT:
+                    tpl = new SelectAttendanceTpl();
+                case INSERT:
+                    tpl = new InsertAttendanceTpl();
+                case DELETE:
+                    tpl = new DeleteAttendanceTpl();
+                    break;
+            }*/
+        } else if (menu instanceof StudentMenu) { // 학생 관련 템플릿
+            StudentMenu studentMenu = (StudentMenu) menu;
+            switch(studentMenu) {
+                case SEARCH: tpl = new StudentListTpl(); break;
             }
         } else {
             MainMenu mainMenu = (MainMenu)menu;
@@ -61,6 +72,7 @@ public class Templates {
                 case ATTENDANCE:
                     tpl = new AttendanceTpl();
                     break;
+                case STUDENT: tpl = new StudentMainTpl(); break;
                 default:
                     tpl = new MainTpl();
             }
