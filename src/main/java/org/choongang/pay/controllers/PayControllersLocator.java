@@ -32,7 +32,7 @@ public class PayControllersLocator implements ControllerLocator {
             return controller;
         }
         switch(menu) {
-            case SEAT: controller = new PayController(); break;
+            case PAY: controller = new PayController(); break;
             default: controller = new MainController();
         }
 

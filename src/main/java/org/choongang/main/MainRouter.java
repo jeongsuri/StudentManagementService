@@ -7,6 +7,7 @@ import org.choongang.global.Router;
 import org.choongang.global.constants.Menu;
 import org.choongang.main.controllers.MainController;
 import org.choongang.notice.controllers.NoticeControllersLocator;
+//import org.choongang.pay.controllers.PayControllersLocator;
 import org.choongang.pay.controllers.PayControllersLocator;
 import org.choongang.reservation.controllers.ReservationControllersLocator;
 import org.choongang.score.controllers.ScoreControllersLocator;
