@@ -5,8 +5,8 @@ import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.attendance.AttendanceTpl;
+import org.choongang.template.attendance.ListAttendanceTpl;
 import org.choongang.template.attendance.RegisterAttendanceTpl;
-import org.choongang.template.attendance.SelectAttendanceTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.reservation.ReservationTpl;
 import org.choongang.template.student.StudentListTpl;
@@ -50,7 +50,7 @@ public class Templates {
 
             switch (attendanceMenu) {
                 case REGISTER:
-                    tpl = new SelectAttendanceTpl();
+                    tpl = new ListAttendanceTpl();
                 case SEARCH:
                     tpl = new RegisterAttendanceTpl();
                     break;

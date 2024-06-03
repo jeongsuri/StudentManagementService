@@ -28,6 +28,7 @@ public class RegisterAttendanceController extends AbstractController {
                 .attendanceDate(attendanceDate)
                 .attendanceStatus(attendanceState)
                 .build();
+
     }
 
 }

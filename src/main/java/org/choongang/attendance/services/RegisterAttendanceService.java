@@ -13,12 +13,6 @@ public class RegisterAttendanceService implements Service<RequestInsertAttendanc
     public void process(RequestInsertAttendance form) {
         SqlSession session = DBConn.getSession();
 
-        String studentNo = form.getStudentNo();
-        String classId = form.getClassId();
-        String today = form.getToday();
-        String attendanceDate = form.getAttendanceDate();
-        String attendanceStatus = form.getAttendanceStatus();
-
         AttendanceMapper mapper = session.getMapper(AttendanceMapper.class);
         RequestInsertAttendance requestInsertAttendance = RequestInsertAttendance.builder()
                 .studentNo(form.getStudentNo())
@@ -27,6 +21,7 @@ public class RegisterAttendanceService implements Service<RequestInsertAttendanc
                 .attendanceDate(form.getAttendanceDate())
                 .attendanceStatus(form.getAttendanceDate())
                 .build();
+
         int plusAttendance = mapper.insertAttendance(requestInsertAttendance);
         System.out.println(plusAttendance);
     }

@@ -10,7 +10,7 @@ import java.util.List;
 public class ListAttandanceController extends AbstractController {
     @Override
     public void show() {
-        System.out.println("출석 조회");
+        System.out.println("💛출석 조회💛");
     }
 
     @Override
