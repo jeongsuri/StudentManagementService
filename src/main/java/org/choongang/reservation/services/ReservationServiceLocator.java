@@ -4,7 +4,9 @@ import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Menu;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
+import org.choongang.global.configs.DBConn;
 import org.choongang.reservation.constants.ReservaitonMenu;
+import org.choongang.reservation.mapper.ReservationMapper;
 
 public class ReservationServiceLocator extends AbstractServiceLocator {
 
@@ -15,6 +17,10 @@ public class ReservationServiceLocator extends AbstractServiceLocator {
         return instance;
     }
 
+    public ReservationMapper reservationMapper() {
+        return DBConn.getSession().getMapper(ReservationMapper.class);
+    }
+
     @Override
     public Service find(Menu menu) {
         Service service = services.get(menu);
@@ -22,7 +28,7 @@ public class ReservationServiceLocator extends AbstractServiceLocator {
             return service;
         }
 
-        if (menu instanceof ReservaitonMenu) { // 혼자하기, 같이하기, 순위보기
+        if (menu instanceof ReservaitonMenu) {
             ReservaitonMenu subMenu = (ReservaitonMenu)menu;
             switch (subMenu) {
                 case RESERVE: service = new InsertReservationSerivce(); break;

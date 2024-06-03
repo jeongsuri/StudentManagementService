@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.reservation.mapper.ReservationMapper">
+    <resultMap id="reservationMap" type="org.choongang.reservation.entities.Reserve">
+        <result column="PLACE_ID" property="placeId" />
+        <result column="STUDENT_NO" property="studentNo" />
+        <result column="RESERVEDATE" property="date" />
+    </resultMap>
+    <select id="getList" resultMap="reservationMap">
+        SELECT * FROM RESERVATION
+        <where>
+            STUDENT_NO = #{studentNo}
+        </where>
+    </select>
+    <insert id="insertReservation">
+        INSERT INTO RESERVATION(PLACE_ID, RESERVEDATE, STUDENT_NO)
+        VALUES (#{placeId}, #{date}, #{studentNo})
+    </insert>
+</mapper>

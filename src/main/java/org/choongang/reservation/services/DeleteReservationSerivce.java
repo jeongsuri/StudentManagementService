@@ -1,11 +1,9 @@
 package org.choongang.reservation.services;
 
 import org.choongang.global.Service;
-import org.choongang.reservation.constants.ReservaitonMenu;
+import org.choongang.reservation.entities.RequestDelete;
 
-public class DeleteReservationSerivce implements Service<ReservaitonMenu> {
-    @Override
-    public void process(ReservaitonMenu form) {
 
-    }
+public class DeleteReservationSerivce implements Service<RequestDelete> {
+
 }
