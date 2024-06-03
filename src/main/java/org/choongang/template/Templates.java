@@ -5,6 +5,8 @@ import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.attendance.AttendanceTpl;
+import org.choongang.template.attendance.InsertAttendanceTpl;
+import org.choongang.template.attendance.SelectAttendanceTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.reservation.ReservationTpl;
 import org.choongang.template.student.StudentListTpl;
@@ -45,16 +47,14 @@ public class Templates {
         }
         if (menu instanceof AttendanceMenu) {
             AttendanceMenu attendanceMenu = (AttendanceMenu) menu;
-           /*
+
             switch (attendanceMenu) {
-                case SELECT:
+                case REGISTER:
                     tpl = new SelectAttendanceTpl();
-                case INSERT:
+                case SEARCH:
                     tpl = new InsertAttendanceTpl();
-                case DELETE:
-                    tpl = new DeleteAttendanceTpl();
                     break;
-            }*/
+            }
         } else if (menu instanceof StudentMenu) { // 학생 관련 템플릿
             StudentMenu studentMenu = (StudentMenu) menu;
             switch(studentMenu) {
