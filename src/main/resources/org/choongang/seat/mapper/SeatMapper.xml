@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.seat.mapper.SeatMapper">
+    <select id="getClassStudent" resultType="String">
+        SELECT STUDENT_NO FROM STUDENT WHERE CLASS_ID = (
+        SELECT CLASS_ID FROM STUDENT WHERE STUDENT_NO = #{studentNo})
+        ORDER BY STUDENT_NO ASC
+    </select>
+    <select id="getStudentNM" resultType="String">
+        SELECT STUDENT_NM FROM STUDENT WHERE STUDENT_NO = #{studentNo}
+    </select>
+</mapper>
