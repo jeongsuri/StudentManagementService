@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.notice.mapper.NoticeMapperMapper">
+    <resultMap id="noticeMap" type="org.choongang.notice.entities.Notice">
+        <result column="NOTICE_NO" property="noticeNo" />
+        <result column="TITLE" property="title" />
+        <result column="CONTENT" property="content" />
+        <result column="TIME_POSTED" property="timePost" />
+    </resultMap>
+
+    <select id="getNotice" resultType="org.choongang.notice.entities.Notice">
+        <![CDATA[SELECT NOTICE_NO, TITLE, TIME_POSTED FROM NOTICE]]>
+    </select>
+</mapper>
+

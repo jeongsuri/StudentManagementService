@@ -11,7 +11,7 @@ public class NoticeRegisterController extends AbstractController {
     @Override
     public void prompt() {
         while(true) {
-            String content = promptWithValidation("공지 내용:", s
+            String content = promptWithValidation("작성할 공지 내용:", s
                     -> !s.isBlank());
 
         }
