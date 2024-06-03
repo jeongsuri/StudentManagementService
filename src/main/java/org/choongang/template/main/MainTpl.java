@@ -12,7 +12,7 @@ public class MainTpl implements Template {
                 .append("3. 수당관리\n")
                 .append("4. 점수관리\n")
                 .append("5. 예약관리\n")
-                .append("6. 좌석관리\n")
+                .append("6. 좌석조회\n")
                 .append("7. 공지관리\n")
                 .append(Templates.getInstance().line());
         return sb.toString();
