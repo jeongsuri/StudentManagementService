@@ -1,26 +1,27 @@
-package org.choongang.score.controllers;
+package org.choongang.grade.controllers;
 
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.constants.Menu;
 import org.choongang.main.controllers.MainController;
+import org.choongang.student.controllers.StudentController;
+import org.choongang.student.controllers.StudentControllersLocator;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ScoreControllersLocator implements ControllerLocator {
-
+public class GradeControllersLocator implements ControllerLocator {
     private static ControllerLocator instance;
 
     private Map<Menu, Controller> controllers;
 
-    private ScoreControllersLocator(){
+    private GradeControllersLocator(){
         controllers = new HashMap<>();
     }
 
     public static ControllerLocator getInstance(){
         if(instance == null){
-            instance = new ScoreControllersLocator();
+            instance = new GradeControllersLocator();
         }
         return instance;
     }
@@ -32,7 +33,7 @@ public class ScoreControllersLocator implements ControllerLocator {
             return controller;
         }
         switch(menu) {
-            case SCORE: controller = new ScoreController(); break;
+            case STUDENT: controller = new StudentController(); break;
             default: controller = new MainController();
         }
 

@@ -1,6 +1,7 @@
 package org.choongang.template;
 
 import org.choongang.global.constants.Menu;
+import org.choongang.template.grade.GradeTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.reservation.ReservationTpl;
 import org.choongang.template.seat.SeatTpl;
@@ -37,6 +38,7 @@ public class Templates {
         switch (menu){
             case SEAT: tpl = new SeatTpl(); break;
             case RESERVATION: tpl = new ReservationTpl(); break;
+            case GRADE: tpl = new GradeTpl(); break;
             default: tpl = new MainTpl();
         }
 

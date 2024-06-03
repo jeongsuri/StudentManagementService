@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.grade.mapper.GradeMapper">
+    <resultMap id="memberMap" type="org.choongang.grade.entities.Grade">
+        <result column="STUDENT_NO" property="studentNo" />
+        <result column="CLASS_ID" property="classId" />
+        <result column="JAVA_SCORE" property="javaScore" />
+        <result column="HTML_SCORE" property="htmlScore" />
+        <result column="DB_SCORE" property="dbScore" />
+    </resultMap>
+
+    <select id="get" resultMap="gradeMap">
+        SELECT * FROM GRADE
+        <where>
+            <if test="studentNo != null">
+                STUDENT_NO=#{studentNo}
+            </if>
+        </where>
+    </select>
+</mapper>

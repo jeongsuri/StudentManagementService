@@ -22,5 +22,7 @@
     </environments>
     <mappers>
         <mapper resource="org/choongang/seat/mapper/SeatMapper.xml"/>
+        <mapper resource="org/choongang/grade/mapper/GradeMapper.xml/">
+
     </mappers>
 </configuration>

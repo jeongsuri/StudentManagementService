@@ -8,5 +8,5 @@ public enum Menu {
     SCORE, //점수관리
     RESERVATION, //예약관리
     SEAT, //좌석관리
-    NOTICE //공지관리
+    GRADE, NOTICE //공지관리
 }

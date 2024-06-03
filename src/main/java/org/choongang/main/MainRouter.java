@@ -9,7 +9,7 @@ import org.choongang.main.controllers.MainController;
 import org.choongang.notice.controllers.NoticeControllersLocator;
 import org.choongang.pay.controllers.PayControllersLocator;
 import org.choongang.reservation.controllers.ReservationControllersLocator;
-import org.choongang.score.controllers.ScoreControllersLocator;
+import org.choongang.grade.controllers.GradeControllersLocator;
 import org.choongang.seat.controllers.SeatControllersLocator;
 import org.choongang.student.controllers.StudentControllersLocator;
 
@@ -45,7 +45,7 @@ public class MainRouter implements Router {
         ControllerLocator student = StudentControllersLocator.getInstance();
         ControllerLocator attendance = AttendanceControllersLocator.getInstance();
         ControllerLocator pay = PayControllersLocator.getInstance();
-        ControllerLocator score = ScoreControllersLocator.getInstance();
+        ControllerLocator score = GradeControllersLocator.getInstance();
         ControllerLocator reservation = ReservationControllersLocator.getInstance();
         ControllerLocator seat = SeatControllersLocator.getInstance();
         ControllerLocator notice = NoticeControllersLocator.getInstance();
