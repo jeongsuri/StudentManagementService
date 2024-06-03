@@ -24,7 +24,7 @@ public class SeatController extends AbstractController {
 
     @Override
     public void prompt() {
-        String studentNo = promptWithValidation("학번: (메인화면으로 이동 q 입력)", s -> !s.isBlank());
+        String studentNo = promptWithValidation("학번: (메인화면으로 이동 -> q)", s -> !s.isBlank());
 
         seat form = seat.builder()
                 .studentNo(studentNo)
