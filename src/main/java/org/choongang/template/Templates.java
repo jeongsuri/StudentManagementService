@@ -5,7 +5,7 @@ import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.attendance.AttendanceTpl;
-import org.choongang.template.attendance.InsertAttendanceTpl;
+import org.choongang.template.attendance.RegisterAttendanceTpl;
 import org.choongang.template.attendance.SelectAttendanceTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.reservation.ReservationTpl;
@@ -52,7 +52,7 @@ public class Templates {
                 case REGISTER:
                     tpl = new SelectAttendanceTpl();
                 case SEARCH:
-                    tpl = new InsertAttendanceTpl();
+                    tpl = new RegisterAttendanceTpl();
                     break;
             }
         } else if (menu instanceof StudentMenu) { // 학생 관련 템플릿
