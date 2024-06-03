@@ -5,8 +5,8 @@ public enum Menu {
     STUDENT, //학생
     ATTENDANCE, //출석관리
     PAY, //수당관리
-    SCORE, //점수관리
+    GRADE, //점수관리
     RESERVATION, //예약관리
     SEAT, //좌석관리
-    GRADE, NOTICE //공지관리
+    NOTICE //공지관리
 }

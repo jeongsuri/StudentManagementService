@@ -13,7 +13,7 @@ public  class Grade {
     public String htmlScore; // 과목
     public String dbScore; // 과목
 
-    public Grade(int studentNo, int grade) {
+    public Grade(int studentNo, String grade) {
     }
 
 }

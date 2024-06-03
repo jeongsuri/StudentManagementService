@@ -76,7 +76,7 @@ public abstract class AbstractController implements Controller {
             case 1: menu = Menu.STUDENT; break; // 학생관리
             case 2: menu = Menu.ATTENDANCE; break; // 출석관리
             case 3: menu = Menu.PAY; break; // 수당관리
-            case 4: menu = Menu.SCORE; break; // 점수관리
+            case 4: menu = Menu.GRADE; break; // 점수관리
             case 5: menu = Menu.RESERVATION; break; // 예약관리
             case 6: menu = Menu.SEAT; break; // 좌석관리
             case 7: menu = Menu.NOTICE; break; // 공지관리

@@ -54,7 +54,7 @@ public class MainRouter implements Router {
             case STUDENT: controller = student.find(Menu.STUDENT); break;
             case ATTENDANCE: controller = attendance.find(Menu.ATTENDANCE); break;
             case PAY: controller = pay.find(Menu.PAY); break;
-            case SCORE: controller = score.find(Menu.SCORE); break;
+            case GRADE: controller = score.find(Menu.GRADE); break;
             case RESERVATION: controller = reservation.find(Menu.RESERVATION); break;
             case SEAT: controller = seat.find(Menu.SEAT); break;
             case NOTICE: controller = notice.find(Menu.NOTICE); break;
