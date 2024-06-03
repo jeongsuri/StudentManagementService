@@ -3,15 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.choongang.pay.mapper.PayMapper">
-   <resultMap id="payMap" type="org.choongang.pay.entities.Pay">
+   <resultMap id="payMap" type="org.choongang.pay.entities.Payment">
       <result column="STUDENT_NO" property="studentNo" />
       <result column="PAYMENT" property="payment" />
    </resultMap>
-   <select id="getPay" resultMap="payMap">
-      SELECT PAYMENT FROM PAY WHERE STUDENT_NO = #{studentNo}
-</select>
-
-   <select id="getStudentNo" resultType="payMap">
-      SELECT STUDENT_NO FROM PAY WHERE STUDENT_NO = #{studentNo}
+   <select id="getPayment" resultMap="payMap">
+      SELECT PAYMENT, STUDENT_NO FROM PAY WHERE STUDENT_NO = #{studentNo}
    </select>
 </mapper>

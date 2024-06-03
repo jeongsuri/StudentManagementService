@@ -1,5 +1,6 @@
 package org.choongang.pay.controllers;
 
+import com.sun.tools.javac.Main;
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Menu;
@@ -27,24 +28,28 @@ public class PayController extends AbstractController {
 
     @Override
     public void prompt() {
-        String StudentNo = promptWithValidation("학번: (메인화면으로 이동 q 입력)", s -> !s.isBlank());
+        String studentNo = promptWithValidation("학번: (메인화면으로 이동 q 입력)", s -> !s.isBlank());
 
+        Pay form = Pay.builder()
+                .studentNo(studentNo)
+                .build();
 
-        SqlSession session = null;
-        session = DBConn.getSession();
-        PayMapper mapper = session.getMapper(PayMapper.class);
         Router router = MainRouter.getInstance();
 
-        /*try {
-            if (StudentNo.equals("q")) { router.change(Menu.MAIN); }
+        try {
+            if (studentNo.equals("q")) { router.change(MainMenu.MAIN); }    //나가기 실행
+
             Service service = new PayService();
             service.process(form);
-            System.out.println(mapper.getPay());
-            router.change(Menu.PAY);
+
         } catch (RuntimeException e) {
             System.err.println("존재하지 않는 학번입니다.");
-            router.change(Menu.PAY);
-        } */
+            router.change(MainMenu.PAY);
+        }
     }
+
 }
+
+
+
 

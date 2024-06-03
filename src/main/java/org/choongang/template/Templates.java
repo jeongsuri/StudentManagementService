@@ -74,6 +74,7 @@ public class Templates {
                     tpl = new AttendanceTpl();
                     break;
                 case STUDENT: tpl = new StudentMainTpl(); break;
+                case PAY: tpl = new PayTpl(); break;
                 default:
                     tpl = new MainTpl();
             }

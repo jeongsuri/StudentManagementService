@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface Service<T> {
     void process(T form);
+
 }
