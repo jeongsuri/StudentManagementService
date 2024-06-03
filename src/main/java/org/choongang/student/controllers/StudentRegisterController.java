@@ -1,4 +1,4 @@
-package org.choongang.student.controllers;
+/*package org.choongang.student.controllers;
 
 import org.choongang.global.AbstractController;
 
@@ -16,4 +16,4 @@ public class StudentRegisterController extends AbstractController {
 
         }
     }
-}
+}*/

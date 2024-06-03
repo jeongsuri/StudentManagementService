@@ -1,4 +1,4 @@
-package org.choongang.template.student;
+/* package org.choongang.template.student;
 
 import org.choongang.template.Template;
 import org.choongang.template.Templates;
@@ -13,4 +13,4 @@ public class StudentTpl implements Template {
 
         return sb.toString();
     }
-}
+} */

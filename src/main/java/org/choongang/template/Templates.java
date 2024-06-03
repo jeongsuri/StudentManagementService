@@ -8,7 +8,6 @@ import org.choongang.template.attendance.AttendanceTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.notice.NoticeMainTpl;
 import org.choongang.template.reservation.ReservationTpl;
-import org.choongang.template.student.StudentListTpl;
 import org.choongang.template.student.StudentMainTpl;
 
 import java.util.HashMap;
@@ -59,7 +58,7 @@ public class Templates {
         } else if (menu instanceof StudentMenu) { // 학생 관련 템플릿
             StudentMenu studentMenu = (StudentMenu) menu;
             switch(studentMenu) {
-                case SEARCH: tpl = new StudentListTpl(); break;
+                case SEARCH: tpl = new StudentMainTpl(); break;
             }
         } else {
             MainMenu mainMenu = (MainMenu)menu;
