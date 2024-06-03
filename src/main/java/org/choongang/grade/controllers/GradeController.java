@@ -17,6 +17,10 @@ public class GradeController extends AbstractController {
     }
 
     @Override
-    public void prompt() {}
+    public void prompt() {
+        long studentNo = Long.parseLong(promptWithValidation("숫자 :", s->!s.isBlank()));
+
+
+    }
 
 }
