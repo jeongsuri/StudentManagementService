@@ -1,8 +1,8 @@
-package org.choongang.score.controllers;
+package org.choongang.grade.controllers;
 
 import org.choongang.global.AbstractController;
 
-public class ScoreController extends AbstractController {
+public class GradeController extends AbstractController {
 
     @Override
     public void common() {

@@ -2,10 +2,11 @@ package org.choongang.pay.controllers;
 
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.AbstractController;
+import org.choongang.global.Menu;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.global.configs.DBConn;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.pay.entities.Pay;
 import org.choongang.pay.mapper.PayMapper;
@@ -21,7 +22,7 @@ import java.util.List;
 public class PayController extends AbstractController {
     @Override
     public void show() {
-        Templates.getInstance().render(Menu.PAY);
+        Templates.getInstance().render(MainMenu.PAY);
     }
 
     @Override

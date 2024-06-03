@@ -15,9 +15,9 @@ public class PayService implements Service<List<Pay>> {
         List<Pay> studentNo = mapper.getStudentNo();
         List<Pay> payment = mapper.getPay();
 
-        Pay form = Pay.builder()
+       /* Pay form = Pay.builder()
                 .studentNo(studentNo)
-                .build();
+                .build(); */
 
 
         if (studentNo != mapper.getStudentNo()) {

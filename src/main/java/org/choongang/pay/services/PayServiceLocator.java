@@ -1,9 +1,10 @@
 package org.choongang.pay.services;
 
 import org.choongang.global.AbstractServiceLocator;
+import org.choongang.global.Menu;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 
 public class PayServiceLocator extends AbstractServiceLocator {
 
@@ -19,11 +20,13 @@ public class PayServiceLocator extends AbstractServiceLocator {
         if(service !=  null){
             return service;
         }
-        switch (menu) {
+        switch ((MainMenu)menu) {
             case PAY:
                 service = new PayService();
                 break;
         }
         return service;
     }
+
+
 }

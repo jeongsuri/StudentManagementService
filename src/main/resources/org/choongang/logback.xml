@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration>
 <configuration>
@@ -15,4 +14,5 @@
 
     <logger name="org.choongang.member.mapper" level="DEBUG" />
     <logger name="org.choongang.pay.mapper" level="DEBUG" />
+    <logger name="org.choongang.grade.mapper" level="DEBUG" />
 </configuration>

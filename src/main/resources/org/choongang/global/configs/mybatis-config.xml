@@ -22,6 +22,7 @@
     </environments>
     <mappers>
         <mapper resource="org/choongang/pay/mapper/PayMapper.xml"/>
+        <mapper resource="org/choongang/attendance/mapper/AttendanceMapper.xml"/>
         <mapper resource="org/choongang/seat/mapper/SeatMapper.xml"/>
     </mappers>
 </configuration>
