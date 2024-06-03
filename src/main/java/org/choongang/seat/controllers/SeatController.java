@@ -39,7 +39,6 @@ public class SeatController extends AbstractController {
 
             Service service = new SeatService();    //싱글톤으로 할경우에 Array와 String을 수동으로 비워야함.
             service.process(form);
-
             router.change(MainMenu.SEAT);
 
         } catch (RuntimeException e) {

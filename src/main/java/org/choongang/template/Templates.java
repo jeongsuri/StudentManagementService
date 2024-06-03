@@ -7,6 +7,7 @@ import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.attendance.AttendanceTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.reservation.ReservationTpl;
+import org.choongang.template.seat.SeatTpl;
 import org.choongang.template.student.StudentListTpl;
 import org.choongang.template.student.StudentMainTpl;
 
@@ -72,7 +73,12 @@ public class Templates {
                 case ATTENDANCE:
                     tpl = new AttendanceTpl();
                     break;
-                case STUDENT: tpl = new StudentMainTpl(); break;
+                case STUDENT: tpl =
+                        new StudentMainTpl();
+                    break;
+                case SEAT: tpl =
+                        new SeatTpl();
+                    break;
                 default:
                     tpl = new MainTpl();
             }
