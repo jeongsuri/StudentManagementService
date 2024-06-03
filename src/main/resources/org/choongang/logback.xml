@@ -13,5 +13,5 @@
     </root>
 
     <logger name="org.choongang.member.mapper" level="DEBUG" />
-    <logger name="org.choongang.score.mapper" level="DEBUG" />
+    <logger name="org.choongang.grade.mapper" level="DEBUG" />
 </configuration>

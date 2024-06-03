@@ -1,21 +1,21 @@
 package org.choongang.reservation.controllers;
 
+import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
-
 import java.util.HashMap;
 import java.util.Map;
+import static org.choongang.global.constants.MainMenu.RESERVATION;
 
-public class ReservationControllersLocator implements ControllerLocator {
+public class ReservationControllersLocator extends AbstractControllerLocator {
 
     private static ControllerLocator instance;
 
-    private Map<Menu, Controller> controllers;
-
     private ReservationControllersLocator(){
-        controllers = new HashMap<>();
+
     }
 
     public static ControllerLocator getInstance(){
@@ -31,10 +31,7 @@ public class ReservationControllersLocator implements ControllerLocator {
         if (controller != null) {
             return controller;
         }
-        switch(menu) {
-            case RESERVATION: controller = new ReservationController(); break;
-            default: controller = new MainController();
-        }
+
 
         controllers.put(menu,controller);
 

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.choongang.score.mapper.ScoreMapper">
+<mapper namespace="org.choongang.grade.mapper.ScoreMapper">
     <resultMap id="attendanceMap" type="org.choongang.attendance.entities.SelectAttendance">
         <result column="TODAY" property="today" />
         <result column="CLASS_ID" property="classId" />

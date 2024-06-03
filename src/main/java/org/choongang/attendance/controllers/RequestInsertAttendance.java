@@ -6,9 +6,9 @@ import lombok.Data;
 @Builder
 @Data
 public class RequestInsertAttendance {
-    private int studentNo;
+    private String studentNo;
     private String classId;
     private String today;
-    private int attendanceDate;
+    private String attendanceDate;
     private String attendanceStatus;
 }

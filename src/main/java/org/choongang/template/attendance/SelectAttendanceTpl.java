@@ -1,4 +1,10 @@
 package org.choongang.template.attendance;
 
-public class SelectAttendanceTpl {
+import org.choongang.template.Template;
+
+public class SelectAttendanceTpl implements Template {
+    @Override
+    public String getTpl() {
+        return "";
+    }
 }

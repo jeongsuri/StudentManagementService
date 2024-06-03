@@ -1,18 +1,16 @@
-package org.choongang.student.controllers;
+package org.choongang.attendance.controllers;
 
+import org.choongang.attendance.AttendnaceRouter;
+import org.choongang.attendance.constants.AttendanceMenu;
 import org.choongang.global.AbstractController;
-import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
-import org.choongang.student.StudentRouter;
-import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.Templates;
 
-public class StudentController extends AbstractController {
-
+public class AttendanceController extends AbstractController {
     @Override
     public void show() {
-        Templates.getInstance().render(MainMenu.STUDENT);
+        Templates.getInstance().render(MainMenu.ATTENDANCE);
     }
 
     @Override
@@ -26,24 +24,16 @@ public class StudentController extends AbstractController {
                     throw new RuntimeException();
                 }
 
-                Menu menu = null;
                 switch (no) {
-                    case 1: menu = StudentMenu.REGISTER; break;
-                    case 2: menu = StudentMenu.SEARCH; break;
+                    case 1: AttendnaceRouter.getInstance().change(AttendanceMenu.REGISTER); break;
+                    case 2: AttendnaceRouter.getInstance().change(AttendanceMenu.SEARCH); break;
                     default:
                         MainRouter.getInstance().change(MainMenu.MAIN);
-                        break;
                 }
-
-                if (menu != null) {
-                    StudentRouter.getInstance().change(menu);
-                }
-
                 break;
             } catch (Exception e) {
-                System.err.println("메뉴는 1, 2, 3번 중에서 선택하세요.");
+                System.err.println("메뉴 1, 2, 3 중에서 선택하세요.\n");
             }
         }
     }
-
 }
