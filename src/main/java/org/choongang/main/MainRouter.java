@@ -1,10 +1,10 @@
 package org.choongang.main;
 
-import org.choongang.attendance.controllers.AttendanceControllersLocator;
+import org.choongang.attendance.controllers.AttendanceControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
 import org.choongang.notice.controllers.NoticeControllersLocator;
 import org.choongang.pay.controllers.PayControllersLocator;
@@ -37,27 +37,27 @@ public class MainRouter implements Router {
      *     RESERVATION, //예약관리
      *     SEAT, //좌석관리
      *     NOTICE //공지관리
-     * @param menu
+     * @param mainMenu
      */
 
     @Override
-    public void change(Menu menu) {
+    public void change(MainMenu mainMenu) {
         ControllerLocator student = StudentControllersLocator.getInstance();
-        ControllerLocator attendance = AttendanceControllersLocator.getInstance();
+        ControllerLocator attendance = AttendanceControllerLocator.getInstance();
         ControllerLocator pay = PayControllersLocator.getInstance();
         ControllerLocator score = ScoreControllersLocator.getInstance();
         ControllerLocator reservation = ReservationControllersLocator.getInstance();
         ControllerLocator seat = SeatControllersLocator.getInstance();
         ControllerLocator notice = NoticeControllersLocator.getInstance();
         Controller controller = null;
-        switch (menu){
-            case STUDENT: controller = student.find(Menu.STUDENT); break;
-            case ATTENDANCE: controller = attendance.find(Menu.ATTENDANCE); break;
-            case PAY: controller = pay.find(Menu.PAY); break;
-            case SCORE: controller = score.find(Menu.SCORE); break;
-            case RESERVATION: controller = reservation.find(Menu.RESERVATION); break;
-            case SEAT: controller = seat.find(Menu.SEAT); break;
-            case NOTICE: controller = notice.find(Menu.NOTICE); break;
+        switch (mainMenu){
+            case STUDENT: controller = student.find(MainMenu.STUDENT); break;
+            case ATTENDANCE: controller = attendance.find(MainMenu.ATTENDANCE); break;
+            case PAY: controller = pay.find(MainMenu.PAY); break;
+            case SCORE: controller = score.find(MainMenu.SCORE); break;
+            case RESERVATION: controller = reservation.find(MainMenu.RESERVATION); break;
+            case SEAT: controller = seat.find(MainMenu.SEAT); break;
+            case NOTICE: controller = notice.find(MainMenu.NOTICE); break;
             default: controller = new MainController();
         }
         controller.run(); //common(), show(), prompt()
@@ -66,7 +66,7 @@ public class MainRouter implements Router {
     @Override
     public void start() {
         while(true){
-            change(Menu.MAIN);
+            change(MainMenu.MAIN);
         }
 
     }

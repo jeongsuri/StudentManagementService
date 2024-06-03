@@ -1,17 +1,20 @@
 package org.choongang.template;
 
-import org.choongang.global.constants.Menu;
+import org.choongang.attendance.constants.AttendanceMenu;
+import org.choongang.global.constants.MainMenu;
+import org.choongang.template.attendance.AttendanceTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.reservation.ReservationTpl;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class Templates {
     private static Templates instance;
-    private Map<Menu, Template> tpls;
+    private Map<MainMenu, Template> tpls;
+    private Map<AttendanceMenu, Template> attendanceTpls;
     private Templates() {
         tpls = new HashMap<>();
+        attendanceTpls = new HashMap<>();
     }
     public static Templates getInstance(){
         if(instance == null){
@@ -19,22 +22,30 @@ public class Templates {
         }
         return instance;
     }
-    public void render(Menu menu) {
-        render(menu, null);
+    public void render(MainMenu mainMenu) {
+        render(mainMenu, null);
     }
 
-    public <T> void render(Menu menu, T data) {
-        System.out.println(find(menu,data).getTpl());
+    public <T> void render(MainMenu mainMenu, T data) {
+        System.out.println(find(mainMenu,data).getTpl());
+    }
+
+    public <T> void render(AttendanceMenu attendanceMenu, T data) {
+        System.out.println(find(attendanceMenu, data).getTpl());
     }
 
 
-    public <T> Template find(Menu menu, T data){
-        Template tpl = tpls.get(menu);
+    public <T> Template find(MainMenu mainMenu, T data){
+        Template tpl = tpls.get(mainMenu);
         if(tpl != null){
             return tpl;
         }
-        switch (menu){
+        if (menu instanceof AttendanceMenu) {
+            AttendanceMenu attendanceMenu = (AttendanceMenu) menu;
+         }
+        switch (mainMenu){
             case RESERVATION: tpl = new ReservationTpl(); break;
+            case ATTENDANCE: tpl = new AttendanceTpl(); break;
             default: tpl = new MainTpl();
         }
 
@@ -42,7 +53,7 @@ public class Templates {
             tpl.setData(data);
         }
 
-        tpls.put(menu,tpl);
+        tpls.put(mainMenu,tpl);
         return tpl;
     }
 

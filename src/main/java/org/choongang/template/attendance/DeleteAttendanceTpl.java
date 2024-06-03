@@ -1,4 +1,10 @@
 package org.choongang.template.attendance;
 
-public class DeleteAttendanceTpl {
+import org.choongang.template.Template;
+
+public class DeleteAttendanceTpl implements Template {
+    @Override
+    public String getTpl() {
+        return "";
+    }
 }

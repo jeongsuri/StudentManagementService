@@ -1,6 +1,8 @@
 package org.choongang.attendance.constants;
 
-public enum Attendance {
+import org.choongang.global.Menu;
+
+public enum AttendanceMenu implements Menu {
     SELECT,
     INSERT,
     DELETE;

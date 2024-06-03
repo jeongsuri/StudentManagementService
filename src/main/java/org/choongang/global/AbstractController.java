@@ -1,6 +1,6 @@
 package org.choongang.global;
 
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
 
@@ -79,19 +79,19 @@ public abstract class AbstractController implements Controller {
     }
 
     private void change(int menuNo) {
-        Menu menu = null;
+        MainMenu mainMenu = null;
         switch(menuNo) {
-            case 1: menu = Menu.STUDENT; break; // 학생관리
-            case 2: menu = Menu.ATTENDANCE; break; // 출석관리
-            case 3: menu = Menu.PAY; break; // 수당관리
-            case 4: menu = Menu.SCORE; break; // 점수관리
-            case 5: menu = Menu.RESERVATION; break; // 예약관리
-            case 6: menu = Menu.SEAT; break; // 좌석관리
-            case 7: menu = Menu.NOTICE; break; // 공지관리
-            default: menu = Menu.MAIN; // 메인 메뉴
+            case 1: mainMenu = MainMenu.STUDENT; break; // 학생관리
+            case 2: mainMenu = MainMenu.ATTENDANCE; break; // 출석관리
+            case 3: mainMenu = MainMenu.PAY; break; // 수당관리
+            case 4: mainMenu = MainMenu.SCORE; break; // 점수관리
+            case 5: mainMenu = MainMenu.RESERVATION; break; // 예약관리
+            case 6: mainMenu = MainMenu.SEAT; break; // 좌석관리
+            case 7: mainMenu = MainMenu.NOTICE; break; // 공지관리
+            default: mainMenu = MainMenu.MAIN; // 메인 메뉴
         }
 
         // 메뉴 컨트롤러 변경 처리 - Router
-        MainRouter.getInstance().change(menu);
+        MainRouter.getInstance().change(mainMenu);
     }
 }
