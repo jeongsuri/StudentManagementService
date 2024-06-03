@@ -9,8 +9,8 @@ import java.util.List;
 
 public class StudentRepository implements StudentMapper {
 
-    private static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe"; // 데이터베이스 URL
-    private static final String DB_USER = "PROJECT2_1"; // 데이터베이스 사용자
+    private static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:XE"; // 데이터베이스 URL
+    private static final String DB_USERNAME = "PROJECT2_1"; // 데이터베이스 사용자
     private static final String DB_PASSWORD = "oracle"; // 데이터베이스 비밀번호
 
     public StudentRepository() {
@@ -22,7 +22,7 @@ public class StudentRepository implements StudentMapper {
     }
 
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+        return DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class StudentRepository implements StudentMapper {
     }
 
     @Override
-    public long getTotal(SearchStudent search) { // 학생 목록
+    public long getTotal(SearchStudent search) { // 학생 총 수 조회
         long total = 0;
         String sql = "SELECT COUNT(*) FROM STUDENT";
 
@@ -118,15 +118,14 @@ public class StudentRepository implements StudentMapper {
 
     @Override
     public int register(Student student) { // 학생 등록
-        String sql = "INSERT INTO STUDENT (STUDENT_NO, STUDENT_NM, MOBILE, CLASS_ID) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO STUDENT (STUDENT_NO, STUDENT_NM, MOBILE, CLASS_ID) VALUES (STUDENT_SEQ.NEXTVAL, ?, ?, ?)";
 
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setLong(1, student.getStudentNo()); // 학번
-            pstmt.setString(2, student.getStudentNm()); // 이름
-            pstmt.setString(3, student.getMobile()); // 전화번호
-            pstmt.setString(4, student.getClassId()); // 과정 ID
+            pstmt.setString(1, student.getStudentNm()); // 이름
+            pstmt.setString(2, student.getMobile()); // 전화번호
+            pstmt.setString(3, student.getClassId()); // 과정 ID
 
             return pstmt.executeUpdate();
         } catch (SQLException e) {
