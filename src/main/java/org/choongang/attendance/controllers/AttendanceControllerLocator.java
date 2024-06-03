@@ -53,7 +53,7 @@ public class AttendanceControllerLocator extends AbstractControllerLocator {
                 controller = new MainController();
             }
 
-            //controller.setMenu(menu);
+            controller.setMenu(menu);
 
             controllers.put(menu, controller);
 

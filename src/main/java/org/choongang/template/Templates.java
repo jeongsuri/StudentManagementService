@@ -54,7 +54,7 @@ public class Templates {
             MainMenu mainMenu = (MainMenu)menu;
             switch (mainMenu) {
                 case MAIN:
-                    tpl = new   MainTpl();
+                    tpl = new MainTpl();
                     break;
                 case RESERVATION:
                     tpl = new ReservationTpl();
