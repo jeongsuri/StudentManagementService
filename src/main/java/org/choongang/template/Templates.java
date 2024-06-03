@@ -9,14 +9,13 @@ import org.choongang.template.attendance.InsertAttendanceTpl;
 import org.choongang.template.attendance.SelectAttendanceTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.reservation.ReservationTpl;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
 public class Templates {
     private static Templates instance;
-    private Map<MainMenu, Template> tpls;
+    private Map<Menu, Template> tpls;
 
     private Templates() {
         tpls = new HashMap<>();

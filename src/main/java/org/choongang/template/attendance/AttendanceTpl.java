@@ -6,7 +6,6 @@ public class AttendanceTpl implements Template {
     @Override
     public String getTpl() {
         StringBuffer sb = new StringBuffer(2000);
-
         sb.append("");
         sb.append("------------------------------------------");
         sb.append("                  출석부");

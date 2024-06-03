@@ -26,12 +26,6 @@ public class InsertAttendanceController extends AbstractController {
         String attendanceState = promptWithValidation("출석상태를 입력하세요: ", s -> !s.isBlank());
     }
 
-    RequestInsertAttendance form = RequestInsertAttendance.builder()
-            .today(today)
-            .classId(classId)
-            .studentNo(studentNo)
-            .attendanceDate(attendanceDate)
-            .attendanceState(attendanceState)
-            .build();
+    RequestInsertAttendance form = RequestInsertAttendance
 
 }

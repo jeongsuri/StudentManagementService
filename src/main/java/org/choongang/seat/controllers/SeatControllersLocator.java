@@ -2,11 +2,14 @@ package org.choongang.seat.controllers;
 
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
+import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.choongang.global.constants.MainMenu.SEAT;
 
 public class SeatControllersLocator implements ControllerLocator {
 
@@ -26,17 +29,17 @@ public class SeatControllersLocator implements ControllerLocator {
     }
 
     @Override
-    public Controller find(MainMenu mainMenu) {
-        Controller controller = controllers.get(mainMenu);
+    public Controller find(Menu menu) {
+        Controller controller = controllers.get(menu);
         if (controller != null) {
             return controller;
         }
-        switch(mainMenu) {
+        switch(menu) {
             case SEAT: controller = new SeatController(); break;
             default: controller = new MainController();
         }
 
-        controllers.put(mainMenu,controller);
+        controllers.put(menu,controller);
 
         return controller;
     }
