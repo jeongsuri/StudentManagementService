@@ -33,7 +33,7 @@ public class AttendanceControllerLocator extends AbstractControllerLocator {
 
         AttendanceMenu aMenu = (AttendanceMenu) menu;
         switch (aMenu) {
-            case REGISTER: controller = new InsertAttendanceController(); break;
+            case REGISTER: controller = new RegisterAttendanceController(); break;
             case SEARCH: controller = new ListAttandanceController(); break;
         }
 

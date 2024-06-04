@@ -2,9 +2,9 @@ package org.choongang.template.attendance;
 
 import org.choongang.template.Template;
 
-public class DeleteAttendanceTpl implements Template {
+public class ListAttendanceTpl implements Template {
     @Override
     public String getTpl() {
-        return "";
+        return "출석 조회";
     }
 }
