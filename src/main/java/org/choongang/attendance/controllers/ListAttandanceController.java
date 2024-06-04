@@ -17,9 +17,9 @@ public class ListAttandanceController extends AbstractController {
 
         Templates.getInstance().render(AttendanceMenu.SEARCH);
 
-        System.out.println("학번     |     오늘날짜      |   출석일수  |  당일 출석  |  과정명");
+        System.out.println("학번     |     오늘날짜      |   출석일수   |  당일 출석   |   과정명");
         for(Attendance item : items) {
-            System.out.printf("%d       %s      %s           %s%n", item.getStudentNo(), item.getToday(), item.getAttendanceDate(), item.getAttendanceStatus(), item.getClassId());
+            System.out.printf("%d       %s      %s             %s           %s%n", item.getStudentNo(), item.getToday(), item.getAttendanceDate(), item.getAttendanceStatus(), item.getClassId());
         }
     }
 
