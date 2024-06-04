@@ -21,8 +21,6 @@ public class PayService implements Service<Pay> {
         Payment payment = mapper.getPayment(form.getStudentNo());
 
         //System.out.printf(payment.getPayment());
-        System.out.printf("수령 가능한 수당은 %s원 입니다.\n" , payment.getPayment());
-
-
+        System.out.printf("수령 가능한 수당은 %s원 입니다.\n" , payment.getPayment()); // db에 있는 수당 출력
     }
 }
