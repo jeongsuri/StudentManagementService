@@ -1,6 +1,5 @@
 package org.choongang.reservation.controllers;
 
-
 import org.choongang.global.AbstractController;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
@@ -21,7 +20,6 @@ public class ReservationController extends AbstractController {
             System.out.print("메뉴 선택: ");
             int menuNo = sc.nextInt();
             try {
-                //int no = Integer.parseInt(menuNo);
                 if (menuNo < 1 || menuNo > 4) {
                     throw new RuntimeException();
                 }
