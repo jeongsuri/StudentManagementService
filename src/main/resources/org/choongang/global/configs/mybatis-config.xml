@@ -23,5 +23,7 @@
     <mappers>
 <!--        <mapper resource="org/choongang/attendance/mapper/AttendanceMapper.xml"/>-->
         <mapper resource="org/choongang/seat/mapper/SeatMapper.xml"/>
+        <mapper resource="org/choongang/reservation/mapper/ReservationMapper.xml"/>
+        <mapper resource="org/choongang/notice/mapper/NoticeMapper.xml"/>
     </mappers>
 </configuration>
