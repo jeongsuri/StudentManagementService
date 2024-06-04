@@ -7,4 +7,5 @@ public interface Service<T> {
     default T process() {
         return null;
 
+    }
 }
