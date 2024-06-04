@@ -16,11 +16,17 @@ public class PayService implements Service<Pay> {
     public void process(Pay form) {
 
 
-        SqlSession session = DBConn.getSession();
-        PayMapper mapper = session.getMapper(PayMapper.class);
-        Payment payment = mapper.getPayment(form.getStudentNo());
+        SqlSession session = DBConn.getSession(); // DB에 연결
+        PayMapper mapper = session.getMapper(PayMapper.class); //PayMapper 인터페이스를 구현한 객체 가져오기
+        Payment payment = mapper.getPayment(form.getStudentNo()); // form에서 학생 번호를 가져와서 해당 학생의 Payment정보를 조회
+        System.out.printf("\u001B[32m" + "\n수령 가능한 수당은 %s원 입니다.\n" + "\u001B[0m" , payment.getPayment()); // 입력한 studentNo와 일치하는 수당을 db에서 가져와 출력
 
-        //System.out.printf(payment.getPayment());
-        System.out.printf("수령 가능한 수당은 %s원 입니다.\n" , payment.getPayment()); // db에 있는 수당 출력
     }
 }
+
+
+
+
+
+
+//System.out.printf(payment.getPayment());
