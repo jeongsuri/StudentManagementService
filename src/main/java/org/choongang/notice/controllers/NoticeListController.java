@@ -27,7 +27,8 @@ public class NoticeListController extends AbstractController {
 
         Templates.getInstance().render(NoticeMenu.NOTICE_LIST, () -> body);
     }
-    //
+    // 컨트롤러를 실행하며 요청된 서비스 실행
+    // body = 공지 번호, 제목, 작성 일시 리스트를 담아 화면에 나타냄
 
 
     @Override
