@@ -32,11 +32,17 @@ public class NoticeController extends AbstractController {
 
                 Menu menu = null;
                 switch (no) {
-                    case 1: menu = NoticeMenu.NOTICE_WRITE; break; // 사용자가 1) 공지 등록을 선택 ->
+                    case 1: menu = NoticeMenu.NOTICE_WRITE; break;
                     case 2: menu = NoticeMenu.NOTICE_LIST; break;
-                    default:
-                        MainRouter.getInstance().change(MainMenu.MAIN);
+                    default: MainRouter.getInstance().change(MainMenu.MAIN);
                         break;
+                        // case NOTICE_WRITE: controller = locator.find(NoticeMenu.NOTICE_WRITE); break;
+                        // case NOTICE_LIST: controller = locator.find(NoticeMenu.NOTICE_LIST); break;
+                        // default : controller = mainLocator.find(MainMenu.MAIN);
+
+                    // 사용자가 선택한 값(1, 2)에 따라 NoticeRouter에서 선택한 메뉴에 맞는 controller 대입
+                    // NOTICE_WRITE -> NoticeRegisterController
+                    // NOTICE_LIST -> NoticeListController
                 }
 
                 if (menu != null) {

@@ -89,9 +89,6 @@ public class Templates {
                 case ATTENDANCE:
                     tpl = new AttendanceTpl();
                     break;
-                case SEAT:
-                    tpl = new SeatTpl();
-                    break;
                 case PAY:
                     tpl = new PayTpl();
                     break;
@@ -100,6 +97,9 @@ public class Templates {
                     break;
                 case NOTICE:
                     tpl = new NoticeMainTpl();
+                    break;
+                case SEAT:
+                    tpl = new SeatTpl();
                     break;
                 default:
                     tpl = new MainTpl();
