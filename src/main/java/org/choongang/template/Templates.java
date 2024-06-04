@@ -3,6 +3,7 @@ package org.choongang.template;
 import org.choongang.attendance.constants.AttendanceMenu;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
+import org.choongang.reservation.constants.ReservaitonMenu;
 import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.attendance.AttendanceTpl;
 import org.choongang.template.attendance.ListAttendanceTpl;
@@ -61,7 +62,9 @@ public class Templates {
             switch(studentMenu) {
                 case SEARCH: tpl = new StudentListTpl(); break;
             }
-        } else {
+        } else if(menu instanceof ReservaitonMenu){
+            ReservaitonMenu reservaitonMenu = (ReservaitonMenu) menu;
+        }else {
             MainMenu mainMenu = (MainMenu)menu;
             switch (mainMenu) {
                 case MAIN:
