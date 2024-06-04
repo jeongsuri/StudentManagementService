@@ -77,9 +77,9 @@ public class Templates {
                 case ATTENDANCE:
                     tpl = new AttendanceTpl();
                     break;
-                case SEAT: tpl =
-                        new SeatTpl();
-
+                case SEAT:
+                    tpl = new SeatTpl();
+                    break;
                 case STUDENT:
                     tpl = new StudentMainTpl();
                     break;
