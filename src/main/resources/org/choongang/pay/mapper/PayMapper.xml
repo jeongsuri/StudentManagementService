@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.pay.mapper.PayMapper">
+   <resultMap id="payMap" type="org.choongang.pay.entities.Payment">
+      <result column="STUDENT_NO" property="studentNo" />
+      <result column="PAYMENT" property="payment" />
+   </resultMap>
+   <!-- PAY 테이블에 있는 PAYMENT , STUDENT_NO를 STUDENT_NO = {studentNo}값이 똑같을때 가져오기 -->
+   <select id="getPayment" resultMap="payMap">
+      SELECT PAYMENT, STUDENT_NO FROM PAY WHERE STUDENT_NO = #{studentNo}
+   </select>
+</mapper>

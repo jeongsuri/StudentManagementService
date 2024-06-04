@@ -26,13 +26,23 @@ public class NoticeController extends AbstractController {
                     throw new RuntimeException();
                 }
 
+                // 사용자 요청 분석 -> 라우트 매칭 -> 라우터가 찾은 컨트롤러 실행(요청된 작업 실행)
+                // 컨트롤러 - 클라이언트의 요청 처리, 적절한 응답 생성
+                // 일반적으로 라우터에 의해 호출되어 요청된 작업을 수행하고 뷰에 전달
+
                 Menu menu = null;
                 switch (no) {
                     case 1: menu = NoticeMenu.NOTICE_WRITE; break;
                     case 2: menu = NoticeMenu.NOTICE_LIST; break;
-                    default:
-                        MainRouter.getInstance().change(MainMenu.MAIN);
+                    default: MainRouter.getInstance().change(MainMenu.MAIN);
                         break;
+                        // case NOTICE_WRITE: controller = locator.find(NoticeMenu.NOTICE_WRITE); break;
+                        // case NOTICE_LIST: controller = locator.find(NoticeMenu.NOTICE_LIST); break;
+                        // default : controller = mainLocator.find(MainMenu.MAIN);
+
+                    // 사용자가 선택한 값(1, 2)에 따라 NoticeRouter에서 선택한 메뉴에 맞는 controller 대입
+                    // NOTICE_WRITE -> NoticeRegisterController
+                    // NOTICE_LIST -> NoticeListController
                 }
 
                 if (menu != null) {

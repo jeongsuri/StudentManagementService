@@ -13,6 +13,8 @@ import org.choongang.reservation.controllers.ReservationController;
 import org.choongang.seat.controllers.SeatController;
 import org.choongang.student.controllers.StudentController;
 
+import java.sql.SQLOutput;
+
 public class MainControllerLocator extends AbstractControllerLocator {
 
     private static ControllerLocator instance;
