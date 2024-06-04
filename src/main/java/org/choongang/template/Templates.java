@@ -4,12 +4,13 @@ import org.choongang.attendance.constants.AttendanceMenu;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.notice.constants.NoticeMenu;
+import org.choongang.reservation.constants.ReservaitonMenu;
 import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.attendance.AttendanceTpl;
 import org.choongang.template.attendance.ListAttendanceTpl;
 import org.choongang.template.attendance.RegisterAttendanceTpl;
 import org.choongang.template.main.MainTpl;
-import org.choongang.template.notice.NoticeListTpl;
+import org.choongang.template.pay.PayTpl;
 import org.choongang.template.notice.NoticeMainTpl;
 import org.choongang.template.reservation.ReservationTpl;
 import org.choongang.template.student.StudentListTpl;
@@ -71,7 +72,9 @@ public class Templates {
                 case NOTICE_WRITE: tpl = new NoticeListTpl(); break;
                 case NOTICE_LIST: tpl = new NoticeListTpl(); break;
             }
-        } else {
+        } else if(menu instanceof ReservaitonMenu){
+            ReservaitonMenu reservaitonMenu = (ReservaitonMenu) menu;
+        }else {
             MainMenu mainMenu = (MainMenu)menu;
             switch (mainMenu) {
                 case MAIN:
@@ -83,6 +86,7 @@ public class Templates {
                 case ATTENDANCE:
                     tpl = new AttendanceTpl();
                     break;
+                case PAY: tpl = new PayTpl(); break;
                 case STUDENT:
                     tpl = new StudentMainTpl();
                     break;
