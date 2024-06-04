@@ -3,12 +3,14 @@ package org.choongang.template;
 import org.choongang.attendance.constants.AttendanceMenu;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
+import org.choongang.notice.constants.NoticeMenu;
 import org.choongang.reservation.constants.ReservaitonMenu;
 import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.attendance.AttendanceTpl;
 import org.choongang.template.attendance.ListAttendanceTpl;
 import org.choongang.template.attendance.RegisterAttendanceTpl;
 import org.choongang.template.main.MainTpl;
+import org.choongang.template.pay.PayTpl;
 import org.choongang.template.notice.NoticeMainTpl;
 import org.choongang.template.reservation.ReservationTpl;
 import org.choongang.template.student.StudentListTpl;
@@ -59,8 +61,16 @@ public class Templates {
             }
         } else if (menu instanceof StudentMenu) { // 학생 관련 템플릿
             StudentMenu studentMenu = (StudentMenu) menu;
-            switch(studentMenu) {
-                case SEARCH: tpl = new StudentListTpl(); break;
+            switch (studentMenu) {
+                case SEARCH:
+                    tpl = new StudentListTpl();
+                    break;
+            }
+        } else if (menu instanceof NoticeMenu) {
+            NoticeMenu noticeMenu = (NoticeMenu) menu;
+            switch (noticeMenu) {
+                case NOTICE_WRITE: tpl = new NoticeListTpl(); break;
+                case NOTICE_LIST: tpl = new NoticeListTpl(); break;
             }
         } else if(menu instanceof ReservaitonMenu){
             ReservaitonMenu reservaitonMenu = (ReservaitonMenu) menu;
@@ -76,6 +86,7 @@ public class Templates {
                 case ATTENDANCE:
                     tpl = new AttendanceTpl();
                     break;
+                case PAY: tpl = new PayTpl(); break;
                 case STUDENT:
                     tpl = new StudentMainTpl();
                     break;
