@@ -9,8 +9,10 @@ import org.choongang.global.Router;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 
+
+    // AttendanceRouter : 각각의 메뉴에 맞는 컨트롤러 찾고 실행
 public class AttendanceRouter implements Router {
-    private static Router instance;
+    private static Router instance; // 싱글톤 패턴 통해 AttendanceRouter 객체 생성 및 자료형 제한
     private AttendanceRouter(){}
     public static Router getInstance(){
         if(instance == null){

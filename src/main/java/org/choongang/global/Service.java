@@ -9,5 +9,9 @@ public interface Service<T> {
     }
     default <T> T get(int no) { return null; }
 
+<<<<<<< HEAD
 }
+=======
+    }
+>>>>>>> 965e93ea22c9fa06e69ebc635257bc14e6665e69
 

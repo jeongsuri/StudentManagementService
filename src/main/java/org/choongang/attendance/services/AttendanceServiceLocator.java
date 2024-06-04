@@ -8,6 +8,7 @@ import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
 import org.choongang.global.configs.DBConn;
 
+// AttendanceServiceLocator : 서비스를 객체 생성 및 반환(개방 폐쇄 원칙)
 public class AttendanceServiceLocator extends AbstractServiceLocator {
 
     private static ServiceLocator instance;
@@ -32,6 +33,6 @@ public class AttendanceServiceLocator extends AbstractServiceLocator {
             case SEARCH: service = new ListAttendanceService(attendanceMapper()); break;
             case REGISTER: service = new RegisterAttendanceService(attendanceMapper()); break;
         }
-        return service;
+        return service; // service객체를 반환
     }
 }
