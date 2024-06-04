@@ -7,6 +7,7 @@
       <result column="STUDENT_NO" property="studentNo" />
       <result column="PAYMENT" property="payment" />
    </resultMap>
+   <!-- PAY 테이블에 있는 PAYMENT , STUDENT_NO를 STUDENT_NO = {studentNo}값이 똑같을때 가져오기 -->
    <select id="getPayment" resultMap="payMap">
       SELECT PAYMENT, STUDENT_NO FROM PAY WHERE STUDENT_NO = #{studentNo}
    </select>

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface AttendanceMapper {
     List<Attendance> getList();
-    int insertAttendance(Attendance attendance);
+    int register(Attendance attendance);
 }
