@@ -30,7 +30,7 @@ public class NoticeServiceLocator extends AbstractServiceLocator {
         Service service = null;
         NoticeMenu nMenu = (NoticeMenu)menu;
         switch (nMenu) {
-            case NOTICE_UPDATE:
+            case NOTICE_UPDATE: // 공지사항 수정 구현 X
             case NOTICE_WRITE: service = new NoticeSaveService(noticeMapper()); break;
             case NOTICE_LIST: service = new NoticeInfoService(noticeMapper()); break;
             case NOTICE_DELETE: service = new NoticeDeleteService(noticeMapper()); break;
