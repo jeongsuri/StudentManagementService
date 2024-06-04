@@ -23,13 +23,10 @@
     <mappers>
         <mapper resource="org/choongang/attendance/mapper/AttendanceMapper.xml" />
         <mapper resource="org/choongang/pay/mapper/PayMapper.xml"/>
-<!--        <mapper resource="org/choongang/attendance/mapper/AttendanceMapper.xml"/>-->
+        <mapper resource="org/choongang/attendance/mapper/AttendanceMapper.xml"/>
         <mapper resource="org/choongang/seat/mapper/SeatMapper.xml"/>
-<<<<<<< HEAD
         <mapper resource="org/choongang/student/mapper/StudentMapper.xml" />
-=======
         <mapper resource="org/choongang/reservation/mapper/ReservationMapper.xml"/>
         <mapper resource="org/choongang/notice/mapper/NoticeMapper.xml"/>
->>>>>>> master
     </mappers>
 </configuration>
