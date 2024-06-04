@@ -8,6 +8,7 @@
         <result column="STUDENT_NM" property="studentNm"/>
         <result column="STUDENT_NO" property="studentNo" />
         <result column="RESERVEDATE" property="date" />
+        <result column="PLACE_NM" property="date" />
     </resultMap>
     <select id="getList" resultMap="reservationMap">
         SELECT S.STUDENT_NO, STUDENT_NM, RESERVEDATE, PLACE_ID
