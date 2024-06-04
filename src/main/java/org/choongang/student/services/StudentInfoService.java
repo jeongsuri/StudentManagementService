@@ -14,10 +14,10 @@ public class StudentInfoService implements Service<List<Student>> {
     public StudentInfoService(StudentMapper mapper) {
         this.mapper = mapper;
     }
-
+/*
     @Override
     public List<Student> getList(Object search) {
 
         return mapper.getList((SearchStudent) search);
-    }
+    }*/
 }
