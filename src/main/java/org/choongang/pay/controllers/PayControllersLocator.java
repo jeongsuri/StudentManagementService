@@ -34,6 +34,10 @@ public class PayControllersLocator extends AbstractControllerLocator {
         if (controller != null) {
             return controller;
         }
+        switch((MainMenu)menu) {
+            case PAY: controller = new PayController(); break;
+            default: controller = new MainController();
+        }
 
 
 
