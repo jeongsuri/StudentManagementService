@@ -1,28 +1,26 @@
 package org.choongang.attendance.services;
 
-import org.apache.ibatis.session.SqlSession;
-import org.choongang.attendance.controllers.RequestInsertAttendance;
+import org.choongang.attendance.entities.Attendance;
 import org.choongang.attendance.mapper.AttendanceMapper;
 import org.choongang.global.Service;
-import org.choongang.global.configs.DBConn;
 
-public class RegisterAttendanceService implements Service<RequestInsertAttendance> {
-    //private final AttendanceMapper mapper;
+public class RegisterAttendanceService implements Service<Attendance> {
+    private AttendanceMapper mapper;
+
+    public RegisterAttendanceService(AttendanceMapper mapper) {
+        this.mapper = mapper;
+    }
 
     @Override
-    public void process(RequestInsertAttendance form) {
-        SqlSession session = DBConn.getSession();
-
-        AttendanceMapper mapper = session.getMapper(AttendanceMapper.class);
-        RequestInsertAttendance requestInsertAttendance = RequestInsertAttendance.builder()
+    public void process(Attendance form) {
+        Attendance register = Attendance.builder()
                 .studentNo(form.getStudentNo())
-                .classId(form.getClassId())
                 .today(form.getToday())
                 .attendanceDate(form.getAttendanceDate())
-                .attendanceStatus(form.getAttendanceDate())
+                .attendanceStatus(form.getAttendanceStatus())
+                .classId(form.getClassId())
                 .build();
-
-        int plusAttendance = mapper.insertAttendance(requestInsertAttendance);
-        System.out.println(plusAttendance);
+        int save = mapper.insertAttendance(register);
+        System.out.println(save);
     }
 }

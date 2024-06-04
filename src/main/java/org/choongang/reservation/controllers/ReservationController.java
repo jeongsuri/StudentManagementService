@@ -1,9 +1,7 @@
 package org.choongang.reservation.controllers;
 
-import org.choongang.attendance.AttendnaceRouter;
-import org.choongang.attendance.constants.AttendanceMenu;
+
 import org.choongang.global.AbstractController;
-import org.choongang.global.Router;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.reservation.ReservationRouter;

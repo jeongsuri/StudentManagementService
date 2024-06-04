@@ -2,23 +2,20 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.choongang.grade.mapper.ScoreMapper">
-    <resultMap id="attendanceMap" type="org.choongang.attendance.entities.SelectAttendance">
-        <result column="TODAY" property="today" />
-        <result column="CLASS_ID" property="classId" />
+<mapper namespace="org.choongang.attendance.mapper.AttendanceMapper">
+    <resultMap id="attendanceMap" type="org.choongang.attendance.entities.Attendance">
         <result column="STUDENT_NO" property="studentNo" />
+        <result column="TODAY" property="today" />
         <result column="ATTENDANCE_DATE" property="attendanceDate" />
         <result column="ATTENDANCE_STATUS" property="attendanceStatus" />
+        <result column="CLASS_ID" property="classId" />
     </resultMap>
 
-
-    <select id="selectAttendance" resultType="">
+    <select id="getList" resultMap="attendanceMap">
         SELECT * FROM ATTENDANCE
     </select>
 
-
-    <insert id="insertAttendance" parameterType="RequestInsertAttendance">
-        INSERT INTO ATTENDANCE (STUDENT_NO, CLASS_ID, TODAY, ATTENDANCE_DATE, ATTENDANCE_STATUS)
-        VALUES ((#{studentNo}, #{classId}, #{today}, #{attendanceDate}, #{attendanceStatus})
+    <insert id="register">
+        INSERT INTO ATTENDANCE VALUES (#{studentNo}, #{today}, #{attendanceDate}, #{attendanceStatus})
     </insert>
 </mapper>

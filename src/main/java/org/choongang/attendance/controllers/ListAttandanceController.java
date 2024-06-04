@@ -1,11 +1,10 @@
 package org.choongang.attendance.controllers;
 
-import org.apache.ibatis.session.SqlSession;
-import org.choongang.attendance.entities.SelectAttendance;
+import org.choongang.attendance.constants.AttendanceMenu;
+import org.choongang.attendance.entities.Attendance;
+import org.choongang.attendance.services.AttendanceServiceLocator;
 import org.choongang.global.AbstractController;
-import org.choongang.global.configs.DBConn;
-
-import java.util.List;
+import org.choongang.global.Service;
 
 public class ListAttandanceController extends AbstractController {
     @Override
@@ -15,8 +14,8 @@ public class ListAttandanceController extends AbstractController {
 
     @Override
     public void prompt() {
-        SqlSession session = DBConn.getSession();
-        List<SelectAttendance> attendanceList = session.selectList("org.choongang.attendance.mapper.AttendanceMapper.selectAttendance");
-        attendanceList.forEach(System.out::println);
+        Service<Attendance> service = AttendanceServiceLocator.getInstance().find(AttendanceMenu.SEARCH);
+        service.process();
+
     }
 }
