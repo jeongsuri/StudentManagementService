@@ -6,4 +6,6 @@ public interface Service<T> {
     default T process() {
         return null;
     }
+
+    default <T> T get(int no) { return null; }
 }
