@@ -1,10 +1,69 @@
 package org.choongang.student.controllers;
 
+import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
+import org.choongang.student.constants.StudentMenu;
+import org.choongang.student.mapper.StudentRepository;
+import org.choongang.student.services.StudentService;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class StudentControllersLocator extends AbstractControllerLocator {
+
+    private static ControllerLocator instance;
+
+    private StudentControllersLocator(){
+
+    }
+
+    public static ControllerLocator getInstance(){
+        if(instance == null){
+            instance = new StudentControllersLocator();
+        }
+        return instance;
+    }
+
+    @Override
+    public Controller find(Menu menu) {
+        Controller controller = controllers.get(menu);
+        if (controller != null) {
+            return controller;
+        }
+
+        StudentMenu studentMenu = (StudentMenu)menu;
+        switch(studentMenu) {
+            case REGISTER: controller = new StudentRegisterController(); break;
+            case SEARCH: controller = new StudentListController(); break;
+        }
+        controllers.put(menu,controller);
+
+        return controller;
+    }
+
+}
+
+/**
+ * 학생 관리 시스템에서 특정 메뉴에 대한 컨트롤러를 제공하는 StudentControllersLocator 클래스
+ * instance : 싱글톤 패턴을 구현하기 위한 ControllerLocator 타입의 정적 변수
+ * getInstance 메서드 : 싱글톤 인스턴스 반환
+ * find 메서드 : 주어진 메뉴에 대한 컨트롤러를 찾음
+ * controllers 맵에서 해당 메뉴에 대한 컨트롤러가 이미 존재하는지 확인 -> 존재하면 해당 컨트롤러 반환
+ * REGISTER 메뉴 -> StudentRegisterController 생성 / SEARCH 메뉴 -> StudentListController 생성
+ */
+
+/* package org.choongang.student.controllers;
+
+import org.choongang.global.Controller;
+import org.choongang.global.ControllerLocator;
+import org.choongang.global.Menu;
+import org.choongang.global.constants.MainMenu;
+import org.choongang.main.controllers.MainController;
+import org.choongang.student.controllers.StudentController;
 import org.choongang.student.services.StudentService;
 import org.choongang.student.mapper.StudentRepository;
 
@@ -53,46 +112,4 @@ public class StudentControllersLocator implements ControllerLocator {
 
         return controller; // 검색된 컨트롤러 반환
     }
-}
-
-/* package org.choongang.student.controllers;
-
-import org.choongang.global.AbstractControllerLocator;
-import org.choongang.global.Controller;
-import org.choongang.global.ControllerLocator;
-import org.choongang.global.Menu;
-import org.choongang.student.constants.StudentMenu;
-
-public class StudentControllersLocator extends AbstractControllerLocator {
-
-    private static ControllerLocator instance;
-
-    private StudentControllersLocator(){
-
-    }
-
-    public static ControllerLocator getInstance(){
-        if(instance == null){
-            instance = new StudentControllersLocator();
-        }
-        return instance;
-    }
-
-    @Override
-    public Controller find(Menu menu) {
-        Controller controller = controllers.get(menu);
-        if (controller != null) {
-            return controller;
-        }
-
-        StudentMenu studentMenu = (StudentMenu)menu;
-        switch(studentMenu) {
-            case REGISTER: controller = new StudentRegisterController(); break;
-            case SEARCH: controller = new StudentListController(); break;
-        }
-        controllers.put(menu,controller);
-
-        return controller;
-    }
-
 } */

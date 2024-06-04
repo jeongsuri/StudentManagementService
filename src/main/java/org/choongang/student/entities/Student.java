@@ -11,3 +11,7 @@ public class Student {
     private String mobile; // 전화번호
     private String classId; // 과정 id
 }
+
+/**
+ * 학생을 나타내는 Student 엔티티 클래스
+ */

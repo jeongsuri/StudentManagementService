@@ -16,3 +16,11 @@ public class StudentMainTpl implements Template {
         return sb.toString();
     }
 }
+
+/**
+ * 학생 관리 메뉴에 대한 템플릿을 정의하는 StudentMainTpl 클래스입니다.
+ *
+ * getTpl() : 템플릿을 반환하는 메서드
+ * 문자열 버퍼를 사용하여 여러 줄의 텍스트 생성, 그 안에 학생 관리 메뉴에 대한 정보 추가
+ * Templates.getInstance().line()을 통해 구분선을 추가하여 시각적으로 명확하게 메뉴 구분
+ */

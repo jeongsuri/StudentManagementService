@@ -135,3 +135,12 @@ public class StudentRepository implements StudentMapper {
         return 0;
     }
 }
+
+/**
+ * StudentRepository 클래스 정의 -> StudentMapper 인터페이스 구현 -> 데이터베이스와 상호작용하여 학생 관련 정보 처리
+ * getList : 데이터베이스에서 전체 학생 목록 조회 -> SQL 쿼리 실행하여 결과를 List<Student> 형태로 반환
+ * get : 주어진 학번에 해당하는 학생 조회 -> SQL 쿼리 실행하여 결과를 Student 객체로 반환
+ * getTotal: 데이터베이스에 등록된 전체 학생 수 조회 -> SQL 쿼리를 실행하여 결과를 long 형태로 반환
+ * exist : 주어진 학번이 이미 등록되어 있는지 확인 -> SQL 쿼리를 실행하여 결과를 int 형태로 반환
+ * register : 새로운 학생 정보 데이터베이스에 등록 -> SQL 쿼리를 실행하여 등록된 행의 수 반환
+ */
