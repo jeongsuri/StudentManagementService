@@ -1,23 +1,29 @@
-package org.choongang.notice.controllers;
+package org.choongang.pay.controllers;
 
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Menu;
-import org.choongang.notice.constants.NoticeMenu;
+import org.choongang.global.constants.MainMenu;
+import org.choongang.main.controllers.MainController;
 
+import java.util.HashMap;
+import java.util.Map;
 
-public class NoticeControllerLocator extends AbstractControllerLocator {
+import static org.choongang.global.constants.MainMenu.SEAT;
+
+public class PayControllersLocator extends AbstractControllerLocator {
 
     private static ControllerLocator instance;
 
-    private NoticeControllerLocator(){
+
+    private PayControllersLocator(){
 
     }
 
     public static ControllerLocator getInstance(){
         if(instance == null){
-            instance = new NoticeControllerLocator();
+            instance = new PayControllersLocator();
         }
         return instance;
     }
@@ -28,12 +34,13 @@ public class NoticeControllerLocator extends AbstractControllerLocator {
         if (controller != null) {
             return controller;
         }
-
-        NoticeMenu noticeMenu = (NoticeMenu)menu;
-        switch(noticeMenu) {
-            case NOTICE_WRITE: controller = new NoticeRegisterController(); break;
-            case NOTICE_LIST: controller = new NoticeListController(); break;
+        switch((MainMenu)menu) {
+            case PAY: controller = new PayController(); break;
+            default: controller = new MainController();
         }
+
+
+
         controllers.put(menu,controller);
 
         return controller;

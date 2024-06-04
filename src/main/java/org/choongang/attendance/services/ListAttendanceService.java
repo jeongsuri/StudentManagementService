@@ -1,16 +1,20 @@
 package org.choongang.attendance.services;
 
-import org.choongang.attendance.entities.SelectAttendance;
+import org.choongang.attendance.entities.Attendance;
 import org.choongang.attendance.mapper.AttendanceMapper;
 import org.choongang.global.Service;
-import org.choongang.global.configs.DBConn;
-
 import java.util.List;
 
-public class ListAttendanceService implements Service<List<SelectAttendance>> {
+public class ListAttendanceService implements Service<List<Attendance>> {
+
+    private AttendanceMapper mapper;
+
+    public ListAttendanceService(AttendanceMapper mapper) {
+        this.mapper = mapper;
+    }
+
     @Override
-    public List<SelectAttendance> process() {
-        AttendanceMapper mapper = DBConn.getSession().getMapper(AttendanceMapper.class);
-        return mapper.selectAttendance();
+    public List<Attendance> process() {
+        return mapper.getList();
     }
 }

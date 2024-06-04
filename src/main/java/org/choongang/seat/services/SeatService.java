@@ -3,6 +3,7 @@ package org.choongang.seat.services;
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.Service;
 import org.choongang.global.configs.DBConn;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.seat.entities.seat;
 import org.choongang.seat.mapper.SeatMapper;
 

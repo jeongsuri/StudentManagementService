@@ -27,8 +27,8 @@ public class InsertReservationContoller extends AbstractController {
     @Override
     public void prompt() {
         String studentNo = promptWithValidation("학생번호 : ", str -> str.length() >= 0);
-        String date = promptWithValidation("날짜 : ", str -> str.length() >= 0);
-        String placeId = promptWithValidation("장소 : ",str -> str.length() >= 0);
+        String date = promptWithValidation("날짜(yyyy-mm-dd) : ", str -> str.length() >= 0);
+        String placeId = promptWithValidation("장소(1.1층, 2.2층, 3.3층) : ",str -> str.length() >= 0);
 
         Router router = MainRouter.getInstance();
         RequestRes form = RequestRes.builder()

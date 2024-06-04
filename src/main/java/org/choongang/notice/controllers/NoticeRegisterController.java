@@ -13,7 +13,7 @@ public class NoticeRegisterController extends AbstractController {
         while(true) {
             String content = promptWithValidation("작성할 공지 내용:", s
                     -> !s.isBlank());
-
+            // 실제 작성은 안 됨, 서브 메뉴만 구현
         }
     }
 }

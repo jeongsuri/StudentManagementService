@@ -4,7 +4,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.choongang.global.Service;
 import org.choongang.global.configs.DBConn;
 import org.choongang.reservation.entities.RequestList;
-import org.choongang.reservation.entities.RequestRes;
 import org.choongang.reservation.entities.Reserve;
 import org.choongang.reservation.mapper.ReservationMapper;
 
