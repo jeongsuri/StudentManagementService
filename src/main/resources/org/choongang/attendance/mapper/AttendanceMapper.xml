@@ -16,6 +16,6 @@
     </select>
 
     <insert id="register">
-        INSERT INTO ATTENDANCE VALUES (#{studentNo}, #{today}, #{attendanceDate}, #{attendanceStatus})
+        INSERT INTO ATTENDANCE VALUES (#{studentNo}, #{today}, #{attendanceDate}, #{attendanceStatus}, #{classId})
     </insert>
 </mapper>

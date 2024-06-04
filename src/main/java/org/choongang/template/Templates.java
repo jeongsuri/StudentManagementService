@@ -10,8 +10,8 @@ import org.choongang.template.attendance.AttendanceTpl;
 import org.choongang.template.attendance.ListAttendanceTpl;
 import org.choongang.template.attendance.RegisterAttendanceTpl;
 import org.choongang.template.main.MainTpl;
-import org.choongang.template.pay.PayTpl;
 import org.choongang.template.notice.NoticeMainTpl;
+import org.choongang.template.pay.PayTpl;
 import org.choongang.template.reservation.ReservationTpl;
 import org.choongang.template.student.StudentListTpl;
 import org.choongang.template.student.StudentMainTpl;
@@ -69,8 +69,8 @@ public class Templates {
         } else if (menu instanceof NoticeMenu) {
             NoticeMenu noticeMenu = (NoticeMenu) menu;
             switch (noticeMenu) {
-                case NOTICE_WRITE: tpl = new NoticeListTpl(); break;
-                case NOTICE_LIST: tpl = new NoticeListTpl(); break;
+                //case NOTICE_WRITE: tpl = new NoticeListTpl(); break;
+                //case NOTICE_LIST: tpl = new NoticeListTpl(); break;
             }
         } else if(menu instanceof ReservaitonMenu){
             ReservaitonMenu reservaitonMenu = (ReservaitonMenu) menu;
