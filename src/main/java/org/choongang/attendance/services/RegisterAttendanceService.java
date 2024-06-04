@@ -13,14 +13,7 @@ public class RegisterAttendanceService implements Service<Attendance> {
 
     @Override
     public void process(Attendance form) {
-        Attendance register = Attendance.builder()
-                .studentNo(form.getStudentNo())
-                .today(form.getToday())
-                .attendanceDate(form.getAttendanceDate())
-                .attendanceStatus(form.getAttendanceStatus())
-                .classId(form.getClassId())
-                .build();
-        int save = mapper.insertAttendance(register);
-        System.out.println(save);
+
+       mapper.register(form);
     }
 }
