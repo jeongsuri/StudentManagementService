@@ -15,6 +15,7 @@ import org.choongang.template.pay.PayTpl;
 import org.choongang.template.notice.NoticeMainTpl;
 import org.choongang.template.pay.PayTpl;
 import org.choongang.template.reservation.ReservationTpl;
+import org.choongang.template.seat.SeatTpl;
 import org.choongang.template.student.StudentListTpl;
 import org.choongang.template.student.StudentMainTpl;
 
@@ -88,12 +89,16 @@ public class Templates {
                 case ATTENDANCE:
                     tpl = new AttendanceTpl();
                     break;
-                case PAY: tpl = new PayTpl(); break;
+                case PAY: tpl = new PayTpl();
+                    break;
                 case STUDENT:
                     tpl = new StudentMainTpl();
                     break;
                 case NOTICE:
                     tpl = new NoticeMainTpl();
+                    break;
+                case SEAT:
+                    tpl = new SeatTpl();
                     break;
                 default:
                     tpl = new MainTpl();
