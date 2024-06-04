@@ -1,5 +1,10 @@
 package org.choongang.attendance.mapper;
 
+import org.choongang.attendance.entities.Attendance;
+
+import java.util.List;
+
 public interface AttendanceMapper {
-    int selectAttendance();
+    List<Attendance> getList();
+    int register(Attendance attendance);
 }
