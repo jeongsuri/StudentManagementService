@@ -12,8 +12,11 @@ import java.util.List;
 public class ListAttandanceController extends AbstractController {
     @Override
     public void show() {
+        // ListAttendanceService에서 DB에 저장된 데이터 조회한것을(SELECT) 여기서 출력
+        // 원래는 뷰 즉 tpl에서 출력물을 보여주도록 해야 하지만 시간이 부족하여
+        // ListAttandanceController에서 구현하도록 코드 구성
         Service<List<Attendance>> service = AttendanceServiceLocator.getInstance().find(AttendanceMenu.SEARCH);
-        List<Attendance> items = service.process();
+        List<Attendance> items = service.process(); // 서비스에서 조회
 
         Templates.getInstance().render(AttendanceMenu.SEARCH);
 
@@ -25,8 +28,5 @@ public class ListAttandanceController extends AbstractController {
 
     @Override
     public void prompt() {
-
-
-
     }
 }
