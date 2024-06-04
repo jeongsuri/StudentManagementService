@@ -9,26 +9,27 @@ import org.choongang.global.Router;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 
-public class AttendnaceRouter implements Router {
+public class AttendanceRouter implements Router {
     private static Router instance;
-    private AttendnaceRouter(){}
+    private AttendanceRouter(){}
     public static Router getInstance(){
         if(instance == null){
-            instance = new AttendnaceRouter();
+            instance = new AttendanceRouter();
         }
         return instance;
     }
     @Override
     public void change(Menu menu) {
-        Controller controller = null;
         AttendanceMenu aMenu = (AttendanceMenu) menu;
+        Controller controller = null;
+
         ControllerLocator locator = AttendanceControllerLocator.getInstance();
         switch (aMenu) {
             case REGISTER: controller =  locator.find(AttendanceMenu.REGISTER); break;
             case SEARCH: controller = locator.find(AttendanceMenu.SEARCH); break;
             default:
                 MainRouter.getInstance().change(MainMenu.ATTENDANCE);
-                return;
+                //return;
         }
 
         if (controller != null) {

@@ -3,9 +3,13 @@ package org.choongang.template;
 import org.choongang.attendance.constants.AttendanceMenu;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
+import org.choongang.reservation.constants.ReservaitonMenu;
 import org.choongang.student.constants.StudentMenu;
 import org.choongang.template.attendance.AttendanceTpl;
+import org.choongang.template.attendance.ListAttendanceTpl;
+import org.choongang.template.attendance.RegisterAttendanceTpl;
 import org.choongang.template.main.MainTpl;
+import org.choongang.template.notice.NoticeMainTpl;
 import org.choongang.template.reservation.ReservationTpl;
 import org.choongang.template.seat.SeatTpl;
 import org.choongang.template.student.StudentListTpl;
@@ -46,22 +50,22 @@ public class Templates {
         }
         if (menu instanceof AttendanceMenu) {
             AttendanceMenu attendanceMenu = (AttendanceMenu) menu;
-           /*
+
             switch (attendanceMenu) {
-                case SELECT:
-                    tpl = new SelectAttendanceTpl();
-                case INSERT:
-                    tpl = new InsertAttendanceTpl();
-                case DELETE:
-                    tpl = new DeleteAttendanceTpl();
+                case REGISTER:
+                    tpl = new ListAttendanceTpl();
+                case SEARCH:
+                    tpl = new RegisterAttendanceTpl();
                     break;
-            }*/
+            }
         } else if (menu instanceof StudentMenu) { // 학생 관련 템플릿
             StudentMenu studentMenu = (StudentMenu) menu;
             switch(studentMenu) {
                 case SEARCH: tpl = new StudentListTpl(); break;
             }
-        } else {
+        } else if(menu instanceof ReservaitonMenu){
+            ReservaitonMenu reservaitonMenu = (ReservaitonMenu) menu;
+        }else {
             MainMenu mainMenu = (MainMenu)menu;
             switch (mainMenu) {
                 case MAIN:
@@ -73,11 +77,14 @@ public class Templates {
                 case ATTENDANCE:
                     tpl = new AttendanceTpl();
                     break;
-                case STUDENT: tpl =
-                        new StudentMainTpl();
-                    break;
                 case SEAT: tpl =
                         new SeatTpl();
+
+                case STUDENT:
+                    tpl = new StudentMainTpl();
+                    break;
+                case NOTICE:
+                    tpl = new NoticeMainTpl();
                     break;
                 default:
                     tpl = new MainTpl();
