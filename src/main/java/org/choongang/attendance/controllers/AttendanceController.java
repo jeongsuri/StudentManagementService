@@ -1,8 +1,9 @@
 package org.choongang.attendance.controllers;
 
-import org.choongang.attendance.AttendnaceRouter;
+import org.choongang.attendance.AttendanceRouter;
 import org.choongang.attendance.constants.AttendanceMenu;
 import org.choongang.global.AbstractController;
+import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.template.Templates;
@@ -24,11 +25,16 @@ public class AttendanceController extends AbstractController {
                     throw new RuntimeException();
                 }
 
+                Menu menu = null;
                 switch (no) {
-                    case 1: AttendnaceRouter.getInstance().change(AttendanceMenu.REGISTER); break;
-                    case 2: AttendnaceRouter.getInstance().change(AttendanceMenu.SEARCH); break;
+                    case 1: menu = AttendanceMenu.SEARCH; break;
+                    case 2: menu = AttendanceMenu.REGISTER; break;
                     default:
                         MainRouter.getInstance().change(MainMenu.MAIN);
+                        break;
+                }
+                if (menu != null) {
+                    AttendanceRouter.getInstance().change(menu);
                 }
                 break;
             } catch (Exception e) {

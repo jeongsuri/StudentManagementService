@@ -17,8 +17,8 @@
     </select>
 
 
-    <insert id="insertAttendance" >
-        INSERT INTO ATTENDANCE (TODAY, CLASS_ID, STUDENT_NO, ATTENDANCE_DATE, ATTENDANCE_STATUS)
-        VALUES (SYSDATE, #{classId}, #{studentNo}, #{attendanceDate}, #{attendanceStatus})
+    <insert id="insertAttendance" parameterType="RequestInsertAttendance">
+        INSERT INTO ATTENDANCE (STUDENT_NO, CLASS_ID, TODAY, ATTENDANCE_DATE, ATTENDANCE_STATUS)
+        VALUES ((#{studentNo}, #{classId}, #{today}, #{attendanceDate}, #{attendanceStatus})
     </insert>
 </mapper>
