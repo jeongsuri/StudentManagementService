@@ -7,6 +7,8 @@ import lombok.Data;
 @Builder
 public class Reserve {
     private String studentNo;
+    private String studentNm;
     private String date;
     private String placeId;
+    private String placeName;
 }

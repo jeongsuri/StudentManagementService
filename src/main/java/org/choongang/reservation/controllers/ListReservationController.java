@@ -7,7 +7,6 @@ import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.reservation.constants.ReservaitonMenu;
 import org.choongang.reservation.entities.RequestList;
-import org.choongang.reservation.entities.RequestRes;
 import org.choongang.reservation.services.ReservationServiceLocator;
 import org.choongang.template.Templates;
 
@@ -36,7 +35,6 @@ public class ListReservationController extends AbstractController {
 
         while(true) {
             try {
-                //회원 가입 처리..
                 Service service = ReservationServiceLocator.getInstance().find(ReservaitonMenu.SEARCH);
                 service.process(form);
 

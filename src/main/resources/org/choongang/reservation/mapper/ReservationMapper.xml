@@ -5,13 +5,15 @@
 <mapper namespace="org.choongang.reservation.mapper.ReservationMapper">
     <resultMap id="reservationMap" type="org.choongang.reservation.entities.Reserve">
         <result column="PLACE_ID" property="placeId" />
+        <result column="STUDENT_NM" property="studentNm"/>
         <result column="STUDENT_NO" property="studentNo" />
         <result column="RESERVEDATE" property="date" />
     </resultMap>
     <select id="getList" resultMap="reservationMap">
-        SELECT * FROM RESERVATION
+        SELECT S.STUDENT_NO, STUDENT_NM, RESERVEDATE, PLACE_ID
+        FROM STUDENT S  , RESERVATION R
         <where>
-            STUDENT_NO = #{studentNo}
+            S.STUDENT_NO = R.STUDENT_NO AND R.STUDENT_NO = #{studentNo}
         </where>
     </select>
     <insert id="insertReservation">
