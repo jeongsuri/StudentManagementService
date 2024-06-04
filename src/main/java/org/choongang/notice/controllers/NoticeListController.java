@@ -21,14 +21,13 @@ public class NoticeListController extends AbstractController {
 
     @Override
     public void show() {
-
         List<Notice> items = service.process();
         String body = items.stream().map(p -> String.format("%d\t%s\t%s%n", p.getNOTICE_NO(), p.getTITLE(), p.getTIME_POST()))
                         .collect(Collectors.joining("\n"));
 
         Templates.getInstance().render(NoticeMenu.NOTICE_LIST, () -> body);
-
     }
+    //
 
 
     @Override
@@ -46,7 +45,7 @@ public class NoticeListController extends AbstractController {
 
                 System.out.printf("글번호: %d%n", notice.getNOTICE_NO());
                 System.out.printf("공지 제목: %s%n", notice.getTITLE());
-                System.out.printf("공지 내용: %s%n", notice.getTIME_POST());
+                System.out.printf("공지 내용: %s%n", notice.getTIME_POST()); // 작성 시간이 떠야 하는데 내용이 뜸..
 
 
                 System.out.print("수정(1), 삭제(2): ");
